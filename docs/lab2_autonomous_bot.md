@@ -64,6 +64,8 @@ Review the form for the Agent that you have just created. You will notice four c
       - AI engine: This lets you select which AI engine you wish to use. There are currently two engines available, "Webex AI Pro 1.0", and "Webex AI Pro-US 1.0". As our lab is based in the European data center, you will only see "Webex AI Pro 1.0".
       - Welcome message: This is the first message that your AI Agent will send to the customer.
 
+      You can find the documentation on each option at the following [website](https://help.webex.com/en-us/article/nelkmxk/Guidelines-and-best-practices-for-automating-with-AI-agent).
+
   - Knowledge: This section allows you to select the Knowledge base that the agent will use to fulfil the responses to the customer.
   - Actions: This section defines the actions that you agent can take. You will see one default action included with each agent named "Agent handover". You can create additional actions to fulfill tasks as required.
   - Language: This allows you to select the language used by your AI Agent as well as the voice that will be used. For the Webex AI Pro-US engine, the only language  available is English.
@@ -72,3 +74,6 @@ Review the form for the Agent that you have just created. You will notice four c
 - History: This shows the save history of your agent. As you make changes that are subsequently saved and published, this section will be populated.
 - Analytics: This will show statistics and reporting about the use of your AI Agent.
 
+**Step 4.**
+
+Let's now update the Instructions field. We have provided an example instruction below. Copy and paste this into the Instructions field to start. After you have done this, 

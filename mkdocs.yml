@@ -88,16 +88,10 @@ nav:
   - Home: index.md
   - Lab:
       - Overview: overview.md
-      - Lab 1 - Getting Started: lab1_getting_started.md
-      - Conclusion: conclusion.md
-  - Topologies: topologies.md
-  - How to use this guide:
-      - Setting up and using the tool:
-        - Initial Setup: howToUse/initialSetup.md
-        - Using the tool after the initial setup: howToUse/postInitial.md
-        - Publishing your changes: howToUse/syncChanges.md
-      - Styling and Advanced Features:
-        - Markdown and Other References: howToUse/references.md
-        - Custom Features: howToUse/customFeatures.md
-        - Custom Admonitions: howToUse/admonition.md
+      - Lab 1 - Environment Introduction: lab1_environment_intro.md
+      - Lab 2 - Autonomous AI Agent: lab2_autonomous_bot.md
+      - Lab 3 - Scripted AI Agent: lab3_scripted_bot_basic.md
+      - Lab 4 - Agent Handover: lab4_agent_handover.md
+      - Lab 5 - Digital Deflection: lab5_chat_bot.md
+
  
