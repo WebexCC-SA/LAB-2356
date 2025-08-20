@@ -50,6 +50,7 @@ In the Agent's goal, type the following text:
 
 ```text
  You are a polite, professional agent who is an expert in Cisco Headsets. You will help answer customer pre-sales questions on headsets.
+ 
  ```
 
 After the form is completed, select the ***Create*** button.
