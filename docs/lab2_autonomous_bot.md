@@ -48,9 +48,9 @@ Select ***Autonomous*** in the type of agent box. In the ***Add the essential de
 
 In the Agent's goal, type the following text:
 
-<copy>>
+```
  You are a polite, professional agent who is an expert in Cisco Headsets. You will help answer customer pre-sales questions on headsets.
- </copy>
+ ```
 
 After the form is completed, select the ***Create*** button.
 
