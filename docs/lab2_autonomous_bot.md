@@ -38,19 +38,29 @@ Select ***Start from scratch*** and then click the ***Next*** button to the bott
 
    ![Start from scratch](./assets/L2-02.png)
 
+**Step 3.**
+
 Select ***Autonomous*** in the type of agent box. In the ***Add the essential details*** form:
 
-- Provide an Agent Name of your choice.
+- Provide an Agent Name of your choice. Ensure that it is unique by including your seat number at the beginning  Ex. "S01 - My AI Agent"
 - The System ID is auto-generated.
 - The AI engine should be left as Webex AI Pro 1.0.
 
-In the Agent's goal, type the following text, "You are a polite, professional agent who is an expert in Cisco Headsets. You will help answer customer pre-sales questions on headsets."
+In the Agent's goal, type the following text:
+
+```text
+ You are a polite, professional agent who is an expert in Cisco Headsets. You will help answer customer pre-sales questions on headsets.
+ ```
 
 After the form is completed, select the ***Create*** button.
 
-**Step 3.**
+![Autonomous Agent Start](./assets/AutonomousStart.jpg)
+
+**Step 4.**
 
 Review the form for the Agent that you have just created. You will notice four configuration sections at the top and four menu options at the left. Let's review each.
+
+![Initial Autonomous Agent Form](./assets/InitialAutonomousForm.jpg)
 
 - Configuration:
 
@@ -74,6 +84,40 @@ Review the form for the Agent that you have just created. You will notice four c
 - History: This shows the save history of your agent. As you make changes that are subsequently saved and published, this section will be populated.
 - Analytics: This will show statistics and reporting about the use of your AI Agent.
 
-**Step 4.**
+**Step 5.**
 
-Let's now update the Instructions field. We have provided an example instruction below. Copy and paste this into the Instructions field to start. After you have done this, 
+Let's now update the Instructions field. We have provided an example instruction below. Copy and paste this into the Instructions field to start.
+
+```text
+You are an expert customer service representative who can answer any question on the capabilities and features of Cisco headsets. You should answer all questions in the most professional, helpful way possible.
+
+The customers contacting you are potential customers who will need additional information on the features and capabilities of Cisco headsets in order to make and informed purchasing decision.
+
+If the customer is not clear in what they ask, clarify their question and ensure that you have all the information you need. 
+
+Ensure that your only interactions are about Cisco headsets and the knowledge base. If the customer asks a non related question, inform them politely that you cannot help them with that query and suggest that they seek other solutions outside of yourself.
+```
+
+![Filled Out Instructions](./assets/L2S2-InstructionsFilledOut.jpg)
+
+After you have done this, review the text and notice what has been included.
+
+Paragraph 1 – This describes what the Agent should do. It gives the way that the agent should interact with the customer. Note that we tell the agent what voice it should use (most professional, helpful way possible).
+
+Paragraph 2 – This describes what customers will be talking to the AI Agent. This lets the agent format the messages in the proper way.
+
+Paragraph 3 – Here we account for errors where the agent may not understand what the customer asked.
+
+Paragraph 4 – The final paragraph sets guardrails on the interactions. We explicitly tell the agent that it may not answer questions that are outside of the knowledge base.
+
+**Step 6.**
+
+Next, let's update the Welcome message. As a reminder, this is the first message that the agent will send to the customer. This should greet the customer and describe what to expect from the interaction. Use the sample shown as a starting point and copy/paste it into your agent.
+
+```text
+Hello, I am a sales assistant agent and I can help answer questions about Cisco headsets. How can I help you today?
+```
+
+**Step 7.**
+
+We now have the AI Agent configured but we need to map to to a Knowledge Base. Select the *Knowledge* tab to configure this. From the Knowledge Base drop-down, select the knowledge base indicated by your lab instructor.
