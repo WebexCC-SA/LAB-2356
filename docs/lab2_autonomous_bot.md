@@ -120,4 +120,52 @@ Hello, I am a sales assistant agent and I can help answer questions about Cisco 
 
 **Step 7.**
 
-We now have the AI Agent configured but we need to map to to a Knowledge Base. Select the *Knowledge* tab to configure this. From the Knowledge Base drop-down, select the knowledge base indicated by your lab instructor.
+We now have the AI Agent configured but we need to map to to a Knowledge Base. Select the *Knowledge* tab to configure this. From the Knowledge Base drop-down, select the knowledge base that corresponds to your seat number. You may find it easier to search for the knowledge base instead of scrolling through the entire list.
+
+![Knowledge Base Selection](./assets/L2S7-KBSelection.jpg)
+
+**Step 8.**
+
+Finally, select the *Language* tab. If you wish, update the voice to a different option but leave the language set to English.
+
+![Language Selection](./assets/L2S8-LanguageSelection.jpg)
+
+**Step 9.**
+
+Now that you have configured the AI Agent, select the *Save Changes* button at the top of the AI Agent configuration screen.
+
+![Save Changes](./assets/./L2S9-SaveChangesButton.jpg)
+
+## **Task 2. Test AI Agent and Review Session History**
+
+In this task, you will test the AI Agent that you created above. This will let you validate that everything is working correctly. Cisco supports testing with both text and voice.
+
+**Step 1. Text Preview**
+
+Select the *Preview* button at the top of the screen. Note that you do not need to publish the agent to preview.
+
+![Preview Button](./assets/L2T2S1-PreviewButton.jpg)
+
+The preview interface pops up at the bottom. Select, *Start a chat* to begin testing.
+
+![Start a chat](./assets/L2T2S1-StartAChat.jpg)
+
+**Step 2. Chat with Agent**
+
+You will see your Welcome message come up on the screen. To begin testing, type the question, "What type of headsets does Cisco sell?". You can see the example response that was generated when the lab guide was built. Because this is an LLM generated AI Agent, the result that you receive, may be different. Select the *Read More* link in the response to read the entire response. This will let you read the full response that was generated.
+
+![First Response from Agent](./assets/L2T2S2-FirstResponse.jpg)
+
+Continue to interact with the agent and ask questions. You may want to ask which headsets are bluetooth enabled or which ones have boom mics. To test the guardrails, ask it a non-related question such as, "What is the weather in San Diego today?"
+
+**Step 3. Review Session History**
+
+After you have done testing the Agent are are satisfied with the results, select the *Sessions* menu at the left. This opens the sessions list and allows you to see the messages sent and responses that were generated.
+
+![Sessions Menu Location](./assets/L2T2S3-SessionsMenu.jpg)
+
+Locate the session record for the test session and click on it. 
+
+![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
+
+You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". 
