@@ -168,4 +168,34 @@ Locate the session record for the test session and click on it.
 
 ![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
 
-You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". 
+You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine. 
+
+![Session Details](./assets/L2T2S3-SessionDetails.jpg)
+
+Click the down arrow next to the Knowledge Base to review the documents and pages where the agent generated the information. Notice as you scroll down, you can see each document which information was pulled from and the specific page and content. 
+
+![Knowledge Used](./assets/L2T2S3-KnowledgeUse.jpg)
+
+**Step 4. Publish the AI Agent**
+
+If you are not already on the Configuration page, select the *Configuration* menu at the left. Select *Publish* at the top of the page. In the *Publish and track changes* box, enter a comment about this publication. In the example, we have entered "Initial publication". These comments will help you identify what has changed later so ensure that these are meaningful to you.
+
+![Publication Screen](./assets/L2T3S1-PublicationScreen.jpg)
+
+Before we go any further, Select the *History* menu. Here, you can see the history of the publications and once there are more than one version, you can select the drop-down in the controls column to revert to a previous release. You will also see that you can export a specific version of the agent if you need to fork the development for some reason.
+
+![History Page](./assets/L2T3S1-HistoryPage.jpg)
+
+## **Task 3. Integrate to Call Flow**
+
+We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.
+
+**Step 2. Update Call Studio**
+
+In this task you will download a shell application that we have created for you. You will import this, then modify it to work with the bot you created in Lab 2.
+
+Step 1. Download the application by clicking on, [Native_AI_Lab](./applications/NativeAI_Lab.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
+
+Step 2. Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+
+![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
