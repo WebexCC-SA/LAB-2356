@@ -143,3 +143,11 @@ Verify that you've completed all of the required configurations as seen in the s
 ![Verify Intent config 1](./assets/L2-26.png)
 
 ## **Task 3. Integrate to Call Flow**
+
+We have now imported and customized an AI Agent. We are now ready to integrate into a call flow.
+
+**Step 1. Login to CVP Server**
+
+a. Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+
+![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
