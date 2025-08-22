@@ -1,0 +1,826 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Implementing AI and cloud-based services for your Contact Center Enterprise.">
+      
+      
+        <meta name="author" content="Robert W. Rogier">
+      
+      
+      
+        <link rel="prev" href="../lab2_autonomous_bot/">
+      
+      
+        <link rel="next" href="../lab4_agent_handover/">
+      
+      
+      <link rel="icon" href="../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Lab 3 - Scripted AI Agent - LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-3-import-and-customize-an-ai-agent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." class="md-header__button md-logo" aria-label="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 3 - Scripted AI Agent
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Lab
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." class="md-nav__button md-logo" aria-label="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lab
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1_environment_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Environment Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2_autonomous_bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Autonomous AI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Scripted AI Agent
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Scripted AI Agent
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-import-and-customize-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1. Import and Customize an Agent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-integrate-to-call-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3. Integrate to Call Flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4_agent_handover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Agent Handover
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab5_chat_bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5 - Digital Deflection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-3-import-and-customize-an-ai-agent">Lab 3 - Import and Customize an AI Agent</h1>
+<h2 id="objectives"><strong>Objectives</strong></h2>
+<p>In this lab you will build a scripted AI agent that can respond to both chat and voice channels:</p>
+<ul>
+<li>Know how to import an exported agent</li>
+<li>Know how to create Intents, Entities, and Responses</li>
+<li>Know how to return data back to the calling application</li>
+<li>Know how to use previous interactions to troubleshoot intent and response mapping</li>
+</ul>
+<p>This agent will collect the order number and a user PIN from the user, then pass that information back to the Call Studio application. The studio application will then call a RESTful API to get order status and return this status back to the AI Agent. The AI Agent will play the order status back to the customer.</p>
+<p>Explanation of formatting:</p>
+<ul>
+<li><em>Italics</em> – This indicates a button, menu option, or object that should be selected.</li>
+<li>"Quoted Text" – This indicates that the text should be typed exactly as indicated.</li>
+</ul>
+<h2 id="task-1-import-and-customize-an-agent"><strong>Task 1. Import and Customize an Agent</strong></h2>
+<p>In this task, we will import an agent that we have configured for you ahead of time.</p>
+<p><strong>Step 1.</strong> Download the example agent and import into AI Agent Studio</p>
+<p>a. Select the <a href="./downloads/OrderingAIAgent.zip">Scripted AI Agent</a> to download the AI Agent to your desktop. Once you have done this, extract the zip file so that you have the JSON file ready.</p>
+<p>b. In AI Agent Studio, select the <em>Import agent</em> button at the top, right side of the studio.</p>
+<p><a class="glightbox" href="../assets/L3T1S1-ImportAgent.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Import Agent" data-desc-position="top"><img alt="Import Agent" src="../assets/L3T1S1-ImportAgent.jpg" /></a></p>
+<p>c. Select the <em>Upload</em> button, then navigate to where you extracted the Agent and select it to import. Provide an agent name that in unique. To do this, include your seat number in the format of, "S01 - My Order Fulfillment Agent". Note that the System ID will be automatically generated, accept the default. After validating that everything is correct, select the <em>Import</em> button at the bottom, right of the page.</p>
+<p><a class="glightbox" href="../assets/L3T1S1c-FilledInImport.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Completed Import Screen" data-desc-position="top"><img alt="Completed Import Screen" src="../assets/L3T1S1c-FilledInImport.jpg" /></a></p>
+<p><strong>Step 2.</strong> Add Intent and Response to collect required information</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Intents</em></strong> -&gt; click on the <strong><em>Create intent</em></strong> button.</p>
+<p><a class="glightbox" href="../assets/L2-09.png" data-type="image" data-width="100%" data-height="auto" data-title="Intent" data-desc-position="top"><img alt="Intent" src="../assets/L2-09.png" /></a></p>
+<p>b. Enter the Intent name as "Start Order Tracking" and enable the toggle button to <strong><em>Reset slots after completion</em></strong>.</p>
+<p>c. Under the <strong><em>Intent and Utterances</em></strong> section, type the phrase "Track my order" and click the <strong>*Add</strong> button.</p>
+<p><a class="glightbox" href="../assets/L2-10.png" data-type="image" data-width="100%" data-height="auto" data-title="Utterance 1" data-desc-position="top"><img alt="Utterance 1" src="../assets/L2-10.png" /></a></p>
+<p>d. Next, add a 2nd utterance by typing "track order number 123456 with pin 1234" and clicking the <strong><em>Add</em></strong> button.</p>
+<ul>
+<li>As soon as the 2nd utterance is added, the 6 digit number and the 4 digit pin will be highlighted and previously created entities of 'order_number' and 'user_pin' are added under the <strong><em>Slot filling</em></strong> section.</li>
+<li>In the Slot filling section, check the <strong><em>Required</em></strong> box for each of these slots.</li>
+</ul>
+<p><a class="glightbox" href="../assets/L2-12.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Utterance 2" data-desc-position="top"><img alt="Utterance 2" src="../assets/L2-12.jpg" /></a></p>
+<blockquote>
+<p>What is an entity?</p>
+<blockquote>
+<p>Entities are the building blocks of conversations. They are essential elements that the AI agent extracts from user utterances. Entities represent specific pieces of information, such as product names, dates, quantities, or any other significant group of words. By effectively identifying and extracting entities, the AI agent can better understand user intent and provide more accurate and relevant responses.</p>
+</blockquote>
+<p>What is a slot?</p>
+<blockquote>
+<p>The value collected for an entity is called a slot. Consider the following analogy, entity is a variable name and slot is the value of that variable.</p>
+</blockquote>
+<p>Why do I need to create a slot here? </p>
+<blockquote>
+<p>As part of the Intent, the bot needs to collect the basic info like order number and the user pin so that these 2 values can be passed to go look for the status of an order in the database.</p>
+</blockquote>
+</blockquote>
+<p>e. Add the Response for missing order number by selecting the drop-down next to the order_number entity in the <em>Slot filling</em> section. In the search box, begin typing the phrase "order_number" and select the Custom response named, "order_number".</p>
+<p><a class="glightbox" href="../assets/L3T1S2e-OrderNumberResponse.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Order Number Response" data-desc-position="top"><img alt="Order Number Response" src="../assets/L3T1S2e-OrderNumberResponse.jpg" /></a></p>
+<p>Repeat this for the user_pin entity. The response name you need to find is "pin_missing". Reference the image below for the completed Slot filling section.</p>
+<p><a class="glightbox" href="../assets/L3T1S2e-CompletedSlotFilling.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Completed Slot Filling" data-desc-position="top"><img alt="Completed Slot Filling" src="../assets/L3T1S2e-CompletedSlotFilling.jpg" /></a></p>
+<p>f. On the "Start Order Tracking" Intent configuration page and under the <strong><em>Intent and utterances</em></strong> section, click on the <strong><em>Generate</em></strong> button.
+ <a class="glightbox" href="../assets/L2-21.png" data-type="image" data-width="100%" data-height="auto" data-title="Utterance-G1" data-desc-position="top"><img alt="Utterance-G1" src="../assets/L2-21.png" /></a></p>
+<p>g. In the <strong><em>Generate variants</em></strong> dialog box, provide a description as described below to generate relevant training data and utterances.
+<div class="highlight"><pre><span></span><code>Generate prompts to track an order. Five of those prompts include a 6-digit order number. Another five of the prompts include a 6-digit order number and a 4-digit pin.
+</code></pre></div></p>
+<p>h. In the <strong><em>Number of variants</em></strong> enter 20 and set <strong><em>Creativity</em></strong> to High. Lastly, click the <strong><em>Generate</em></strong> button.</p>
+<p><a class="glightbox" href="../assets/L2-51.png" data-type="image" data-width="100%" data-height="auto" data-title="Utterance-G2" data-desc-position="top"><img alt="Utterance-G2" src="../assets/L2-51.png" /></a></p>
+<p>i. This is what your <strong><em>Intent and utterances</em></strong> configuration section should now look like. The <strong><em>order_number</em></strong> and <strong><em>user_pin</em></strong> slots should now be highlighted automatically. You can add more utterances if you like.</p>
+<p><em>Note: Hallucinations should be rare, but review the generated utterances to enure there are no hallucinations.</em></p>
+<p><a class="glightbox" href="../assets/L2-23.png" data-type="image" data-width="100%" data-height="auto" data-title="Utterance-G3" data-desc-position="top"><img alt="Utterance-G3" src="../assets/L2-23.png" /></a></p>
+<p>You can also add an utterance as a Regular Expression (RegEx)</p>
+<ul>
+<li>track*.*order</li>
+<li>order*.*track</li>
+</ul>
+<p><a class="glightbox" href="../assets/L2-23-1.png" data-type="image" data-width="100%" data-height="auto" data-title="Utterance-RegEx" data-desc-position="top"><img alt="Utterance-RegEx" src="../assets/L2-23-1.png" /></a></p>
+<p><strong>Step 3.</strong> Create Response to return data to Call Studio</p>
+<p>a. In the <strong><em>Response</em></strong> section, select the drop down and click on <strong><em>Create new</em></strong>.</p>
+<p><a class="glightbox" href="../assets/L2-24.png" data-type="image" data-width="100%" data-height="auto" data-title="Response-I1" data-desc-position="top"><img alt="Response-I1" src="../assets/L2-24.png" /></a></p>
+<p>b. In the <strong><em>Create a response</em></strong> pop up windows, enter the response name as <strong><em>track_order_wait</em></strong> and then select the + symbol and click on <strong><em>Voice</em></strong> to add Voice channel.</p>
+<p>c. In the Text section, add the text below as <strong><em>Variant 1</em></strong>. Feel free to add more of these variants if you like.</p>
+<div class="highlight"><pre><span></span><code>Please wait while I track your order.
+</code></pre></div>
+<p>d. Now, click on the <strong><em>Custom Event</em></strong> button to the right to create a custom event and enter as shown below:</p>
+<ul>
+<li><strong>Event name:</strong> 
+<div class="highlight"><pre><span></span><code>custom_event
+</code></pre></div></li>
+<li><strong>Event payload:</strong> 
+<div class="highlight"><pre><span></span><code>{
+  &quot;Execute_Request&quot;: {
+    &quot;Data&quot;: {
+      &quot;Params&quot;: {
+        &quot;order_number&quot;: &quot;${entity.order_number}&quot;,
+        &quot;user_pin&quot;: &quot;${entity.user_pin}&quot;
+      }
+    },
+    &quot;Event_Name&quot;: &quot;custom_event&quot;
+  }
+}
+</code></pre></div></li>
+</ul>
+<p>e. Lastly, click <strong><em>Create</em></strong> and this will take you back to the "Start Order Tracking" Intent configuration page.</p>
+<p><a class="glightbox" href="../assets/L2-52.png" data-type="image" data-width="100%" data-height="auto" data-title="Response-I2" data-desc-position="top"><img alt="Response-I2" src="../assets/L2-52.png" /></a></p>
+<blockquote>
+<p>Why do we need to add Custom Event here?</p>
+<blockquote>
+<p>Custom Event is being added here to pass the order_number and user_pin entity data collected by the AI Agent, back to the Call Studio app. This is coming up in the next lab guide.</p>
+</blockquote>
+</blockquote>
+<p><strong>Step 6.</strong>
+Verify that you've completed all of the required configurations as seen in the screenshot below and click <strong><em>Create</em></strong>.</p>
+<p><a class="glightbox" href="../assets/L2-26.png" data-type="image" data-width="100%" data-height="auto" data-title="Verify Intent config 1" data-desc-position="top"><img alt="Verify Intent config 1" src="../assets/L2-26.png" /></a></p>
+<h2 id="task-3-integrate-to-call-flow"><strong>Task 3. Integrate to Call Flow</strong></h2>
+<p>We have now imported and customized an AI Agent. We are now ready to integrate into a call flow.</p>
+<p><strong>Step 1. Login to CVP Server</strong></p>
+<p>a. Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.</p>
+<p><a class="glightbox" href="../assets/L3T1S2.1-OpenCallStudio.jpg" data-type="image" data-width="100%" data-height="auto" data-title="Open Studio" data-desc-position="top"><img alt="Open Studio" src="../assets/L3T1S2.1-OpenCallStudio.jpg" /></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lab2_autonomous_bot/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 2 - Autonomous AI Agent">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab 2 - Autonomous AI Agent
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lab4_agent_handover/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 4 - Agent Handover">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Lab 4 - Agent Handover
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../template_assets/js/newLoad.js"></script>
+      
+        <script src="../template_assets/js/setInfo.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
