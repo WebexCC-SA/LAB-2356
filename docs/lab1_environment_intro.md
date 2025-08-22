@@ -15,9 +15,7 @@ Webex AI Agent refers to an artificial intelligence virtual agent integrated int
 
 ### **Webex Agent AI Architecture**
 
-<figure markdown>
 ![Architecture](./assets/L1T1S2-Architecture.jpg)
-</figure>
 
 **Native:** Cisco's in-house solution for Virtual Agent. This is the type of Virtual agent that you will configure in this lab.
 
@@ -25,9 +23,7 @@ Webex AI Agent refers to an artificial intelligence virtual agent integrated int
 
 ### **Webex Agent AI Components**
 
-<figure markdown>
 ![Components](./assets/L1T1S2-Components.jpg)
-</figure>
 
 In both the CCE on-premises solution and the Webex CCE tenant, several key components are integral to the Webex AI Agent solution. These include Cisco Unified Voice Portal (CVP), CVP Call Studio, VVB/Speech Server, the CCE core, and Cloud Connect. On the cloud side, the main components consist of Cisco Webex Cloud Services (such as Control Hub, Billing, etc.), AI Orchestration services, the Webex Connect AI Agent, and the AI Agent Studio.
 
@@ -74,7 +70,7 @@ Review the flow diagram below for the details of how the components communicate.
 
 In this task, we will log in to the components that are used in this lab. The goal is to understand where we need to go to configure, maintain, and troubleshoot these features.
 
-Step 1. Access dCloud systems
+**Step 1. Access dCloud systems*
 
 Follow the steps in the *Credentials* tab to access the dCloud eXpo session. Once you are logged into WKST1, locate the mRemoteNG icon and double-click to open.
 
@@ -82,7 +78,7 @@ Follow the steps in the *Credentials* tab to access the dCloud eXpo session. Onc
 
 We will use the CVP and AW-HDS-DDS machines in this lab. You do not need to access them yet, just make a note of where they are.
 
-Step 2. Access Control Hub
+**Step 2. Access Control Hub**
 
 Open a web browser to the [Webex Control URL](https://admin.webex.com){:target="_blank"}. Refer to the *Credentials* tab for details for the credentials to use. The Overview page should load as shown in the screenshot.
 
@@ -112,7 +108,7 @@ Review the items in this section.
 
 ![Cloud Connect](./assets/L1T3S2.6-CH_CCC.jpg)
 
-Step 3. Access AI Agent Studio
+**Step 3. Access AI Agent Studio**
 
 Navigate to the AI Agents section of Control Hub. Select the link, *What are AI Agents?*. Notice that this opens a new tab and directs you to the documentation. As you navigate this section, you can refer to the official documentation at any time.
 
@@ -126,7 +122,7 @@ Next, select the second icon in the black menu bar on the left. This opens the K
 
 Finally, select the third icon down. This opens a tab to the documentation for the Webex AI Agent Studio.
 
-Step 4: Access CVP Call Studio
+**Step 4: Access CVP Call Studio**
 
 In the dCloud Workstation 1 machine you opened in step 1, log in to the CVP server in mRemoteNG.
 
@@ -138,7 +134,7 @@ After you have logged in, locate and open *Cisco Unified Call Studio*.
 
 We will eventually build the CVP Application here. For now, familiarize yourself with where Studio is located.
 
-Step 5. Finesse Agent Desktop
+**Step 5. Finesse Agent Desktop**
 
 On your WKST1 open the browser of your choice. Enter the URL for Finesse, [https://finesse1.dcloud.cisco.com/desktop](https://finesse1.dcloud.cisco.com/desktop).
 

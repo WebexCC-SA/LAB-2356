@@ -1,7 +1,7 @@
 ---
 site_name: "LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." # This must begin with the session ID, e.g. LABXXX-1234 This is my Cisco Live Lab
 site_description: "Implementing AI and cloud-based services for your Contact Center Enterprise." # must be same as "site_name"
-site_author: Robert Rogier
+site_author: Robert W. Rogier
 copyright: Copyright &copy; 2025 Cisco
 theme:
   name: material

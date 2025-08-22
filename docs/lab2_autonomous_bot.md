@@ -168,7 +168,7 @@ Locate the session record for the test session and click on it.
 
 ![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
 
-You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine. 
+You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine.
 
 ![Session Details](./assets/L2T2S3-SessionDetails.jpg)
 
@@ -188,14 +188,12 @@ Before we go any further, Select the *History* menu. Here, you can see the histo
 
 ## **Task 3. Integrate to Call Flow**
 
-We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.
+We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow. 
 
-**Step 2. Update Call Studio**
+**Step 1. Login to CVP Server**
 
-In this task you will download a shell application that we have created for you. You will import this, then modify it to work with the bot you created in Lab 2.
-
-Step 1. Download the application by clicking on, [Native_AI_Lab](./applications/NativeAI_Lab.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
-
-Step 2. Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
+
+teh cat was on the stvoe 
