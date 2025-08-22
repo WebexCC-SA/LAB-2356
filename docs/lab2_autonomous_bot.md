@@ -168,7 +168,7 @@ Locate the session record for the test session and click on it.
 
 ![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
 
-You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine.
+You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine. 
 
 ![Session Details](./assets/L2T2S3-SessionDetails.jpg)
 
@@ -192,8 +192,6 @@ We have now created an AI Agent and have tested it to ensure it's working. We ar
 
 **Step 1. Login to CVP Server**
 
-Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+a. Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
-
-teh cat was on the stvoe 
