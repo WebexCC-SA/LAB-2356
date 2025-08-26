@@ -190,7 +190,7 @@ Before we go any further, Select the *History* menu. Here, you can see the histo
 
 We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
 
-**Step 1.** Download the application by clicking on, [Native_AI_Lab](./downloads/NativeAI_Autonomous.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
+**Step 1.** Download the application by clicking on, [NativeAI_Autonomous](./downloads/NativeAI_Autonomous.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
 
 **Step 2.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
