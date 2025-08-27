@@ -212,17 +212,17 @@ We have now created an AI Agent and have tested it to ensure it's working. We ar
 
     ![Import Dialog Box](./assets/L3T1S3-ImportArchive.jpg)
 
-- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. You should **not** import the *CLUS_NativeAI.zip* file in the downloads directory. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Autonomous.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select *Finish*.
+- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. You should **not** import the *CLUS_NativeAI.zip* file in the downloads directory. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Scripted.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select *Finish*.
 
-    ![Import Application Dialog](./assets/L2T3S3-AutoImportArchiveDialog.jpg)
+    ![Import Application Dialog](./assets/L3T3S3-ScriptedImportArchiveDialog.jpg)
 
-**Step 4.** In the *Project Explorer*, locate the *NativeAI_Auto* project. Expand this and double-click on the *app.callflow* to open the example application.
+**Step 4.** In the *Project Explorer*, locate the *NativeAI_Scripted* project. Expand this and double-click on the *app.callflow* to open the example application.
 
- ![Project Explorer](./assets/L2T3S4-AutoAppCallFlow.jpg)
+ ![Project Explorer](./assets/L3T3S4-ScriptedAppCallFlow.jpg)
 
 **Step 5.** Review the application that you have imported. You will see that we have already added the required elements to the canvas.
 
-![Imported Application](./assets/L2T3S5-ImportedAutoApp.jpg)
+![Imported Application](./assets/L3T3S5-ImportedScriptedApp.jpg)
 
 Refer to the table for what each element is used for.
 
@@ -230,20 +230,24 @@ Refer to the table for what each element is used for.
 | --- | ---| --- |
 | CVP Subdialog Start_01 | CVP Subdialog Start | Mandatory element for all Comprehensive Call Flows to receive data from CCE. |
 | CVP Subdialog End_01 | CVP Subdialog End | Mandatory element for all Comprehensive Call Flows to return data to CCE. |
-| HeadsetAgent | VirtualAgentVoice | VAV element which allows CCE to interact with the Native AI agent. |
-| HeadsetAgentDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotStart VAV element. |
+| TrackerBotStart | VirtualAgentVoice | VAV element which allows CCE to interact with the Native AI agent. |
+| TrackerBotOrderStatus | VirtualAgentVoice | VAV element which allows CCE to interact with the Native AI agent. |
+| TrackerBotStartDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotStart VAV element. |
+| TrackerBotOrderStatusDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotOrderStatus VAV element. |
 | ErrorMessage | Audio | Audio elements allow script to play either static audio files or play text to speech files through an ASR/TTS server. |
 | AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
 | ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
-| SessionEndFlag |  Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
+| SetOrderNumber | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetOrderNumber element is used to parse information returned from the Bot and set values to be used in the GetOrderDetails element. |
+| SetMessageToReturn | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetMessageToReturn element is used to parse the information returned by the RESTful API and set this to a variable to be sent back to the bagentt. |
+| GetOrderDetails | Rest_Client | This element allows us to call the RESTful API with details from the Bot to get information about the order. |
 
 Once you have imported the app, you are ready to start configuring the elements required to interact with the agent.
 
 **Step 6.**  Update the VAV Element with the Agent ID from AI Agent Studio.
 
-a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV bot you will be working with. Notice that we have selects the value, *Autonomous* in the dropdown.
+a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV bot you will be working with. Notice that we have selects the value, *Scripted* in the dropdown.
 
-![Webex AI Agent Dropdown](./assets/L2T3S6a-AutoDropDown.jpg)
+![Scripted Bot Selection](./assets/L3T2S1.1-ScriptedBotSelection.jpg)
 
 b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and may not be in the tenant you are using.
 
@@ -255,27 +259,41 @@ To find the value you need to use, open your Webex AI Studio, select the bot you
 
 Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same two updates.  
 
-**Step 7.** Deploy the Application
+**Step 7.** The Event_Data setting in the VAV element allows us to pass data to the bot. In the first VAV element, we will pass in two static values. In the TrackerBotStart Settings, locate the Event Data and click on the ellipsis (three dots) in the Value.  
+
+![EventEllipsis](./assets/L3T2S6.1-EventDataEllipsis.jpg)
+
+You will see a settings box in the middle of your screen. This allows you to pass JSON formatted key/value pairs. You can pass individual values or even JSON into this. We will pass two values, name and place. For the name field, pass in your first name. For the location field, pass in the state where you are from. If your state or location has two names like North Carolina, pass this with single quotes around it. Refer to the example shown.  
+
+![EventPopulated](./assets/L3T2S6.2-EventDataPopulated.jpg)
+
+Click OK after you have entered the values. You will see these reflected in the Settings tab.  
+
+![EventSettingsPopulated](./assets/L3T2S6.3-EventDataSettingsPopulated.jpg)
+
+**Step 8.** Deploy the Application
 
 a. If you have not saved your application, do so now by selecting the save icon in the toolbar.
 
-b. Validate the application. Right-click the *NativeAI_Auto* application and select *Validate*.
+b. Validate the application. Right-click the *NativeAI_Scripted* application and select *Validate*.
 
 ![ValidateApplication](./assets/L3T4S2.1-ValidateApplication.jpg)
 
 Check the errors grid at the bottom of the screen to ensure nothing is shown. If you do see any errors, review the error and resolve the issue by referring back to the portion of the lab where that item was configured.
 
-c. Deploy the application to the VXML Server. Right-click on the *NativeAI_Auto* application and select *Deploy*.
+c. Deploy the application to the VXML Server. Right-click on the *NativeAI_Scripted* application and select *Deploy*.
 
 ![Deploy Application](./assets/L3T4S3.1-DeployApplication.jpg)
 
-d In the window that pops-up, leave the values at their defaults. The *NativeAI_Auto* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
+d In the window that pops-up, leave the values at their defaults. The *NativeAI_Scripted* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
 
-e. On the CVP VXML server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Auto\admin". Double-click *deployApp.bat*.
+e. On the CVP VXML server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Scripted\admin". Double-click *deployApp.bat*.
 
 f. In the command window that pops up, type "yes" to confirm that you want to deploy the application. Hit enter one more time after the application has been deployed to close the command prompt window.
 
-**Step 8.** Update CCE Script to use the new application
+**Step 9.** Update CCE Script to use the new application
+
+**Note: If you still have the Script Editor open from Lab 2, you may skip to step d.**
 
 a. In your mRemote window, locate the AW-HDS-DDS server and login.
 
@@ -299,9 +317,9 @@ d. Locate the *Set Variable* node which sets the VXML Application name (the four
 
 ![VXML Application Set Variable](./assets/L3T5S4.1-SetVariableNode.jpg)
 
-Open it and update the name of the script (currently HelloWorld) to "NativeAI_Auto".
+Open it and update the name of the script (currently NativeAI_Auto) to "NativeAI_Scripted".
 
-![VXML Application Name Set](./assets/L2T3S8d-VXMLAppName.jpg)
+![VXML Application Name Set](./assets/L3T3S8d-VXMLAppName.jpg)
 
 e. Select the *Save* button in the toolbar to make this change live, then select the *Monitor Script* button.
 
@@ -336,8 +354,16 @@ Use your mobile phone to call into the number. You should hear the bot greet you
 **Step 3.**
 Recommended ways to test the agent.
 
-1. After the agent answers and greets you, ask which headsets support bluetooth.
-2. Ask which headsets have boom mics.
+1. After the bot greets you by name, say "Track an order" or "I'd like to track an order".
+2. The bot will ask you for a 6-digit order number.
+3. After providing the order number, the bot will next ask you for 4-digit pin.
+4. You should now hear the bot provide you an update on the order followed by "would you like to track another order?".
+5. Say "Yes".
+6. Next, try a different utterance by saying "Track order 123456 with pin 7890".
+7. You should now hear the bot provide you an update on the order followed by "would you like to track another order?".
+8. You can now say "No" following which the bot should speak out the configured GoodBye message.
+9. On Finesse you should now see the call come in -> accept the call on Finesse and keep the call going.
+10. On Finesse, under the ***Agent Answers*** tab you should now see the transcript of the conversation between the caller and the AI Agent.
 
 
 **Step 4.**
