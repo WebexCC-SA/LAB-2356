@@ -142,57 +142,7 @@ Verify that you've completed all of the required configurations as seen in the s
 
 ![Verify Intent config 1](./assets/L2-26.png)
 
-## **Task 2. Test AI Agent and Review Session History**
-
-In this task, you will test the AI Agent that you created above. This will let you validate that everything is working correctly. Cisco supports testing with both text and voice.
-
-**Step 1. Text Preview**
-
-Select the *Preview* button at the top of the screen. Note that you do not need to publish the agent to preview.
-
-![Preview Button](./assets/L3T2S1-PreviewButton.jpg)
-
-The preview interface pops up at the bottom. Select, *Start a chat* to begin testing.
-
-![Start a chat](./assets/L2T2S1-StartAChat.jpg)
-
-**Step 2. Chat with Agent**
-
-You will see your Welcome message come up on the screen. To begin testing, type the question, "What type of headsets does Cisco sell?". You can see the example response that was generated when the lab guide was built. Because this is an LLM generated AI Agent, the result that you receive, may be different. Select the *Read More* link in the response to read the entire response. This will let you read the full response that was generated.
-
-![First Response from Agent](./assets/L2T2S2-FirstResponse.jpg)
-
-Continue to interact with the agent and ask questions. You may want to ask which headsets are bluetooth enabled or which ones have boom mics. To test the guardrails, ask it a non-related question such as, "What is the weather in San Diego today?"
-
-**Step 3. Review Session History**
-
-After you have done testing the Agent are are satisfied with the results, select the *Sessions* menu at the left. This opens the sessions list and allows you to see the messages sent and responses that were generated.
-
-![Sessions Menu Location](./assets/L2T2S3-SessionsMenu.jpg)
-
-Locate the session record for the test session and click on it. 
-
-![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
-
-You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine. 
-
-![Session Details](./assets/L2T2S3-SessionDetails.jpg)
-
-Click the down arrow next to the Knowledge Base to review the documents and pages where the agent generated the information. Notice as you scroll down, you can see each document which information was pulled from and the specific page and content. 
-
-![Knowledge Used](./assets/L2T2S3-KnowledgeUse.jpg)
-
-**Step 4. Publish the AI Agent**
-
-If you are not already on the Configuration page, select the *Configuration* menu at the left. Select *Publish* at the top of the page. In the *Publish and track changes* box, enter a comment about this publication. In the example, we have entered "Initial publication". These comments will help you identify what has changed later so ensure that these are meaningful to you.
-
-![Publication Screen](./assets/L2T3S1-PublicationScreen.jpg)
-
-Before we go any further, Select the *History* menu. Here, you can see the history of the publications and once there are more than one version, you can select the drop-down in the controls column to revert to a previous release. You will also see that you can export a specific version of the agent if you need to fork the development for some reason.
-
-![History Page](./assets/L2T3S1-HistoryPage.jpg)
-
-## **Task 3. Integrate to Call Flow**
+## **Task 2. Integrate to Call Flow**
 
 We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
 
@@ -329,7 +279,7 @@ After a moment, you will see green boxes between each of the nodes. This will le
 
 ![Script Monitoring Indicators](./assets/L3T5S5.2-MonitorBoxes.jpg)
 
-## **Task 4. Test Call Flow**
+## **Task 3. Test Call Flow**
 
 **Step 1.**
 Use your mobile phone to call into the number. 
