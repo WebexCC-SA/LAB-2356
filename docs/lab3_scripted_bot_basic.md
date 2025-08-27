@@ -142,12 +142,203 @@ Verify that you've completed all of the required configurations as seen in the s
 
 ![Verify Intent config 1](./assets/L2-26.png)
 
+## **Task 2. Test AI Agent and Review Session History**
+
+In this task, you will test the AI Agent that you created above. This will let you validate that everything is working correctly. Cisco supports testing with both text and voice.
+
+**Step 1. Text Preview**
+
+Select the *Preview* button at the top of the screen. Note that you do not need to publish the agent to preview.
+
+![Preview Button](./assets/L3T2S1-PreviewButton.jpg)
+
+The preview interface pops up at the bottom. Select, *Start a chat* to begin testing.
+
+![Start a chat](./assets/L2T2S1-StartAChat.jpg)
+
+**Step 2. Chat with Agent**
+
+You will see your Welcome message come up on the screen. To begin testing, type the question, "What type of headsets does Cisco sell?". You can see the example response that was generated when the lab guide was built. Because this is an LLM generated AI Agent, the result that you receive, may be different. Select the *Read More* link in the response to read the entire response. This will let you read the full response that was generated.
+
+![First Response from Agent](./assets/L2T2S2-FirstResponse.jpg)
+
+Continue to interact with the agent and ask questions. You may want to ask which headsets are bluetooth enabled or which ones have boom mics. To test the guardrails, ask it a non-related question such as, "What is the weather in San Diego today?"
+
+**Step 3. Review Session History**
+
+After you have done testing the Agent are are satisfied with the results, select the *Sessions* menu at the left. This opens the sessions list and allows you to see the messages sent and responses that were generated.
+
+![Sessions Menu Location](./assets/L2T2S3-SessionsMenu.jpg)
+
+Locate the session record for the test session and click on it. 
+
+![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
+
+You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine. 
+
+![Session Details](./assets/L2T2S3-SessionDetails.jpg)
+
+Click the down arrow next to the Knowledge Base to review the documents and pages where the agent generated the information. Notice as you scroll down, you can see each document which information was pulled from and the specific page and content. 
+
+![Knowledge Used](./assets/L2T2S3-KnowledgeUse.jpg)
+
+**Step 4. Publish the AI Agent**
+
+If you are not already on the Configuration page, select the *Configuration* menu at the left. Select *Publish* at the top of the page. In the *Publish and track changes* box, enter a comment about this publication. In the example, we have entered "Initial publication". These comments will help you identify what has changed later so ensure that these are meaningful to you.
+
+![Publication Screen](./assets/L2T3S1-PublicationScreen.jpg)
+
+Before we go any further, Select the *History* menu. Here, you can see the history of the publications and once there are more than one version, you can select the drop-down in the controls column to revert to a previous release. You will also see that you can export a specific version of the agent if you need to fork the development for some reason.
+
+![History Page](./assets/L2T3S1-HistoryPage.jpg)
+
 ## **Task 3. Integrate to Call Flow**
 
-We have now imported and customized an AI Agent. We are now ready to integrate into a call flow.
+We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
 
-**Step 1. Login to CVP Server**
+**Step 1.** Download the application by clicking on, [NativeAI_Scripted](./downloads/NativeAI_Scripted.zip)). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
 
-a. Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+**Step 2.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
+
+**Step 3.** Import the application you have downloaded.
+
+- Select the *File* menu, then select *Import*.
+
+    ![Import Menu Option](./assets/L3T1S3-ImportMenu.jpg)
+
+- In the box that pops up, select *Projects from Folder or Archive*, then select *Next*.
+
+    ![Import Dialog Box](./assets/L3T1S3-ImportArchive.jpg)
+
+- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. You should **not** import the *CLUS_NativeAI.zip* file in the downloads directory. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Autonomous.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select *Finish*.
+
+    ![Import Application Dialog](./assets/L2T3S3-AutoImportArchiveDialog.jpg)
+
+**Step 4.** In the *Project Explorer*, locate the *NativeAI_Auto* project. Expand this and double-click on the *app.callflow* to open the example application.
+
+ ![Project Explorer](./assets/L2T3S4-AutoAppCallFlow.jpg)
+
+**Step 5.** Review the application that you have imported. You will see that we have already added the required elements to the canvas.
+
+![Imported Application](./assets/L2T3S5-ImportedAutoApp.jpg)
+
+Refer to the table for what each element is used for.
+
+| **Element Name** | **Element Type** | **Element Function**|
+| --- | ---| --- |
+| CVP Subdialog Start_01 | CVP Subdialog Start | Mandatory element for all Comprehensive Call Flows to receive data from CCE. |
+| CVP Subdialog End_01 | CVP Subdialog End | Mandatory element for all Comprehensive Call Flows to return data to CCE. |
+| HeadsetAgent | VirtualAgentVoice | VAV element which allows CCE to interact with the Native AI agent. |
+| HeadsetAgentDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotStart VAV element. |
+| ErrorMessage | Audio | Audio elements allow script to play either static audio files or play text to speech files through an ASR/TTS server. |
+| AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
+| ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
+| SessionEndFlag |  Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
+
+Once you have imported the app, you are ready to start configuring the elements required to interact with the agent.
+
+**Step 6.**  Update the VAV Element with the Agent ID from AI Agent Studio.
+
+a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV bot you will be working with. Notice that we have selects the value, *Autonomous* in the dropdown.
+
+![Webex AI Agent Dropdown](./assets/L2T3S6a-AutoDropDown.jpg)
+
+b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and may not be in the tenant you are using.
+
+![Bot ID Field](./assets/L2T3S6b-BotID.jpg)
+
+To find the value you need to use, open your Webex AI Studio, select the bot you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select *Copy agent ID*.
+
+![Copy BotID](./assets/L3T2S1.2-CopyBotID.jpg)
+
+Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same two updates.  
+
+**Step 7.** Deploy the Application
+
+a. If you have not saved your application, do so now by selecting the save icon in the toolbar.
+
+b. Validate the application. Right-click the *NativeAI_Auto* application and select *Validate*.
+
+![ValidateApplication](./assets/L3T4S2.1-ValidateApplication.jpg)
+
+Check the errors grid at the bottom of the screen to ensure nothing is shown. If you do see any errors, review the error and resolve the issue by referring back to the portion of the lab where that item was configured.
+
+c. Deploy the application to the VXML Server. Right-click on the *NativeAI_Auto* application and select *Deploy*.
+
+![Deploy Application](./assets/L3T4S3.1-DeployApplication.jpg)
+
+d In the window that pops-up, leave the values at their defaults. The *NativeAI_Auto* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
+
+e. On the CVP VXML server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Auto\admin". Double-click *deployApp.bat*.
+
+f. In the command window that pops up, type "yes" to confirm that you want to deploy the application. Hit enter one more time after the application has been deployed to close the command prompt window.
+
+**Step 8.** Update CCE Script to use the new application
+
+a. In your mRemote window, locate the AW-HDS-DDS server and login.
+
+![AWHDS Server](./assets/L3T5S1.1-AWHDS.jpg)
+
+b. Open the Script Editor by opening the Unified CCE Administration Tools folder on the desktop, then opening the *Script Editor* link.
+
+![Unified CCE Admin Tools](./assets/L3T5S2.0-AdminTools.jpg)
+
+![Script Editor](./assets/L3T5S2.1-ScriptEditor.jpg)
+
+c. Open the script named, CumulusInbound.
+
+![CumulusInbound Script](./assets/L3T5S3.1-CumulusScript.jpg)
+
+Select the Edit button in the toolbar.
+
+![Script Editor Edit Button](./assets/L3T5S3.2-EditScript.jpg)
+
+d. Locate the *Set Variable* node which sets the VXML Application name (the fourth node from the top left).
+
+![VXML Application Set Variable](./assets/L3T5S4.1-SetVariableNode.jpg)
+
+Open it and update the name of the script (currently HelloWorld) to "NativeAI_Auto".
+
+![VXML Application Name Set](./assets/L2T3S8d-VXMLAppName.jpg)
+
+e. Select the *Save* button in the toolbar to make this change live, then select the *Monitor Script* button.
+
+![Monitor Script Button](./assets/L3T5S5.1-MonitorScript.jpg)
+
+After a moment, you will see green boxes between each of the nodes. This will let you see the call's progress through the script visually. It is expected that all the green boxes show 0 as we have not placed any calls to this script yet.
+
+![Script Monitoring Indicators](./assets/L3T5S5.2-MonitorBoxes.jpg)
+
+## **Task 4. Test Call Flow**
+
+**Step 1.**
+Use your mobile phone to call into the number. 
+
+a. Locate the Main phone number for your session. On WKST1 open a browser and open a new tab, then in the default page that appears, select ***Demo Links*** -> ***Demo Website***.
+
+  ![Demo Site Location](./assets/L3T6S2.1-DemoWebsiteLocation.jpg)
+
+b. In the Cumulus Finance website that is shown, select the blue box on the right-hand side that reads ***Talk to an Expert***.
+
+ ![Talk to Expert Button](./assets/L3T6S2.1-TalkToExpert.jpg)
+
+c. In the box that pops out, select the Call Us link. In the box that pops up, note the Main number, this is what you will use to test your lab.
+
+**IMPORTANT: THE NUMBER SHOWN IN THE IMAGE IS NOT THE NUMBER YOU WILL USE FOR YOUR LAB. ENSURE THAT YOU FIND THE NUMBER FOR YOUR SESSION!**
+
+ ![Main Phone Number](./assets/L3T6S2.3-MainNumber.jpg)
+
+**Step 2.**
+Use your mobile phone to call into the number. You should hear the bot greet you by name and your town, then ask how to help.
+
+**Step 3.**
+Recommended ways to test the agent.
+
+1. After the agent answers and greets you, ask which headsets support bluetooth.
+2. Ask which headsets have boom mics.
+
+
+**Step 4.**
+Feel free to test out a few different ways of asking for the information.

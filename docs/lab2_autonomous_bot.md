@@ -304,3 +304,35 @@ e. Select the *Save* button in the toolbar to make this change live, then select
 After a moment, you will see green boxes between each of the nodes. This will let you see the call's progress through the script visually. It is expected that all the green boxes show 0 as we have not placed any calls to this script yet.
 
 ![Script Monitoring Indicators](./assets/L3T5S5.2-MonitorBoxes.jpg)
+
+## **Task 4. Test Call Flow**
+
+**Step 1.**
+Use your mobile phone to call into the number. 
+
+a. Locate the Main phone number for your session. On WKST1 open a browser and open a new tab, then in the default page that appears, select ***Demo Links*** -> ***Demo Website***.
+
+  ![Demo Site Location](./assets/L3T6S2.1-DemoWebsiteLocation.jpg)
+
+b. In the Cumulus Finance website that is shown, select the blue box on the right-hand side that reads ***Talk to an Expert***.
+
+ ![Talk to Expert Button](./assets/L3T6S2.1-TalkToExpert.jpg)
+
+c. In the box that pops out, select the Call Us link. In the box that pops up, note the Main number, this is what you will use to test your lab.
+
+**IMPORTANT: THE NUMBER SHOWN IN THE IMAGE IS NOT THE NUMBER YOU WILL USE FOR YOUR LAB. ENSURE THAT YOU FIND THE NUMBER FOR YOUR SESSION!**
+
+ ![Main Phone Number](./assets/L3T6S2.3-MainNumber.jpg)
+
+**Step 2.**
+Use your mobile phone to call into the number. You should hear the bot greet you by name and your town, then ask how to help.
+
+**Step 3.**
+Recommended ways to test the agent.
+
+1. After the agent answers and greets you, ask which headsets support bluetooth.
+2. Ask which headsets have boom mics.
+
+
+**Step 4.**
+Feel free to test out a few different ways of asking for the information.
