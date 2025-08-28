@@ -62,23 +62,21 @@ Review the form for the Agent that you have just created. You will notice four c
 
 ![Initial Autonomous Agent Form](./assets/InitialAutonomousForm.jpg)
 
-- Configuration:
+- Configuration
+    - Profile: This section is where you configure the options that give the guidance to your AI Agent. This form contains the key prompts that you AI Agent will use to perform the task you have for it.
+        - Agent name: A human readable name for the AI Agent. This can be updated as required.
+        - System ID: Generated, unique ID for the AI agent. This can be changed, but must be unique in your tenant.
+        - Agent's goal: This describes what your agent should do at a high level.
+        - Instructions: This is the heart of the AI Agent. This should be a full description of what your agent does and how it should do it. Include guardrails, error handling, context, and describe how actions (where applicable) should be used.
+        - URL for agent profile image: This is the image used with your agent. You can add your own image if you wish.
+        - AI engine: This lets you select which AI engine you wish to use. There are currently two engines available, "Webex AI Pro 1.0", and "Webex AI Pro-US 1.0". As our lab is based in the European data center, you will only see "Webex AI Pro 1.0".
+        - Welcome message: This is the first message that your AI Agent will send to the customer.
 
-  - Profile: This section is where you configure the options that give the guidance to your AI Agent. This form contains the key prompts that you AI Agent will use to perform the task you have for it.
+            You can find the documentation on each option at the following [website](https://help.webex.com/en-us/article/nelkmxk/Guidelines-and-best-practices-for-automating-with-AI-agent).
 
-    - Agent name: A human readable name for the AI Agent. This can be updated as required.
-      - System ID: Generated, unique ID for the AI agent. This can be changed, but must be unique in your tenant.
-      - Agent's goal: This describes what your agent should do at a high level.
-      - Instructions: This is the heart of the AI Agent. This should be a full description of what your agent does and how it should do it. Include guardrails, error handling, context, and describe how actions (where applicable) should be used.
-      - URL for agent profile image: This is the image used with your agent. You can add your own image if you wish.
-      - AI engine: This lets you select which AI engine you wish to use. There are currently two engines available, "Webex AI Pro 1.0", and "Webex AI Pro-US 1.0". As our lab is based in the European data center, you will only see "Webex AI Pro 1.0".
-      - Welcome message: This is the first message that your AI Agent will send to the customer.
-
-      You can find the documentation on each option at the following [website](https://help.webex.com/en-us/article/nelkmxk/Guidelines-and-best-practices-for-automating-with-AI-agent).
-
-  - Knowledge: This section allows you to select the Knowledge base that the agent will use to fulfil the responses to the customer.
-  - Actions: This section defines the actions that you agent can take. You will see one default action included with each agent named "Agent handover". You can create additional actions to fulfill tasks as required.
-  - Language: This allows you to select the language used by your AI Agent as well as the voice that will be used. For the Webex AI Pro-US engine, the only language  available is English.
+    - Knowledge: This section allows you to select the Knowledge base that the agent will use to fulfil the responses to the customer.
+    - Actions: This section defines the actions that you agent can take. You will see one default action included with each agent named "Agent handover". You can create additional actions to fulfill tasks as required.
+    - Language: This allows you to select the language used by your AI Agent as well as the voice that will be used. For the Webex AI Pro-US engine, the only language  available is English.
 
 - Sessions: This allows you to see the interactions with your AI Agent. We will look at this in a later section.
 - History: This shows the save history of your agent. As you make changes that are subsequently saved and published, this section will be populated.
@@ -190,11 +188,11 @@ Before we go any further, Select the *History* menu. Here, you can see the histo
 
 We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
 
-**Step 1.** Download the application by clicking on, [NativeAI_Autonomous](./downloads/NativeAI_Autonomous.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
-
-**Step 2.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+**Step 1.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
+
+**Step 2.** Open a browser on the CVP server and download the application by clicking on, [NativeAI_Autonomous](./downloads/NativeAI_Autonomous.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
 
 **Step 3.** Import the application you have downloaded.
 
@@ -307,7 +305,24 @@ After a moment, you will see green boxes between each of the nodes. This will le
 
 ## **Task 4. Test Call Flow**
 
+In this task, we will test the Native AI agent that you created and see how the human agent sees the call.
+
 **Step 1.**
+On the Chrome browser, open a new tab and enter the URL: ***https://finesse1.dcloud.cisco.com***
+
+Login with the following details:
+
+ - ***Username:*** sjeffers
+ - ***Password:*** C1sco12345
+ - ***Extension:*** 1080
+ 
+ Note, that this is an SSO agent so you should only need to enter the username in the Finesse login screen. The ADFS page should have the agent credentials saved.
+
+Once you have logged in to Finesse, select ***Ready*** from the drop-down -> Next, click the ***VAV*** tab from the left side menu.
+
+ ![Finesse Login](./assets/L2T4S1-FinesseLogin.jpg)
+
+**Step 2.**
 Use your mobile phone to call into the number. 
 
 a. Locate the Main phone number for your session. On WKST1 open a browser and open a new tab, then in the default page that appears, select ***Demo Links*** -> ***Demo Website***.
@@ -324,15 +339,21 @@ c. In the box that pops out, select the Call Us link. In the box that pops up, n
 
  ![Main Phone Number](./assets/L3T6S2.3-MainNumber.jpg)
 
-**Step 2.**
+**Step 3.**
 Use your mobile phone to call into the number. You should hear the bot greet you by name and your town, then ask how to help.
 
-**Step 3.**
+**Step 4.**
 Recommended ways to test the agent.
 
 1. After the agent answers and greets you, ask which headsets support bluetooth.
 2. Ask which headsets have boom mics.
+3. Feel free to ask other questions about headsets.
+4. Try out the guardrails by asking a non-related question like "What is the weather in San Diego today?"
 
+**Step 5.**
 
-**Step 4.**
-Feel free to test out a few different ways of asking for the information.
+When you are done testing the AI Agent, ask to speak to a human agent. You should then see the call arrive at the Finesse desktop. Answer the call and notice that the transcript (1) shows up. Select the AI Assistant button (2) at the top to show the AI Assistant. Here (3), you will see a summary of the call.
+
+![Finesse After Call Received](./assets/L2T4S5-FinesseTranscript.jpg)
+
+**This now completes lab 2**

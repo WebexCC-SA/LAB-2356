@@ -43,7 +43,7 @@ In both the CCE on-premises solution and the Webex CCE tenant, several key compo
 
 There are two kinds of AI Agents:
 
-- Scripted Agent: Works on Predefined Intents, Entities and training data backed with a NLP Engine. This is the type of AI Agent used in this lab.
+- Scripted Agent: Works on Predefined Intents, Entities and training data backed with a NLP Engine.
 
 - Autonomous Agent: Works on Tools / Skills and Knowledge Based powered by a Large Language Model (LLM).
 

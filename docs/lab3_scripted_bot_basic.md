@@ -58,7 +58,7 @@ d. Next, add a 2nd utterance by typing "track order number 123456 with pin 1234"
 >> The value collected for an entity is called a slot. Consider the following analogy, entity is a variable name and slot is the value of that variable.
 
 > Why do I need to create a slot here? 
->> As part of the Intent, the bot needs to collect the basic info like order number and the user pin so that these 2 values can be passed to go look for the status of an order in the database.
+>> As part of the Intent, the agent needs to collect the basic info like order number and the user pin so that these 2 values can be passed to go look for the status of an order in the database.
 
 e. Add the Response for missing order number by selecting the drop-down next to the order_number entity in the *Slot filling* section. In the search box, begin typing the phrase "order_number" and select the Custom response named, "order_number".
 
@@ -146,11 +146,11 @@ Verify that you've completed all of the required configurations as seen in the s
 
 We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
 
-**Step 1.** Download the application by clicking on, [NativeAI_Scripted](./downloads/NativeAI_Scripted.zip)). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
-
-**Step 2.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
+**Step 1.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
+
+**Step 2.** Open a browser on the CVP server and download the application by clicking on, [NativeAI_Scripted](./downloads/NativeAI_Scripted.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
 
 **Step 3.** Import the application you have downloaded.
 
@@ -187,29 +187,29 @@ Refer to the table for what each element is used for.
 | ErrorMessage | Audio | Audio elements allow script to play either static audio files or play text to speech files through an ASR/TTS server. |
 | AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
 | ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
-| SetOrderNumber | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetOrderNumber element is used to parse information returned from the Bot and set values to be used in the GetOrderDetails element. |
+| SetOrderNumber | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetOrderNumber element is used to parse information returned from the agent and set values to be used in the GetOrderDetails element. |
 | SetMessageToReturn | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetMessageToReturn element is used to parse the information returned by the RESTful API and set this to a variable to be sent back to the bagentt. |
-| GetOrderDetails | Rest_Client | This element allows us to call the RESTful API with details from the Bot to get information about the order. |
+| GetOrderDetails | Rest_Client | This element allows us to call the RESTful API with details from the agent to get information about the order. |
 
 Once you have imported the app, you are ready to start configuring the elements required to interact with the agent.
 
 **Step 6.**  Update the VAV Element with the Agent ID from AI Agent Studio.
 
-a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV bot you will be working with. Notice that we have selects the value, *Scripted* in the dropdown.
+a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV agent you will be working with. Notice that we have selects the value, *Scripted* in the dropdown.
 
-![Scripted Bot Selection](./assets/L3T2S1.1-ScriptedBotSelection.jpg)
+![Scripted agent Selection](./assets/L3T2S1.1-ScriptedBotSelection.jpg)
 
 b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and may not be in the tenant you are using.
 
-![Bot ID Field](./assets/L2T3S6b-BotID.jpg)
+![agent ID Field](./assets/L3T2S1.3-BotIDFilled.jpg)
 
-To find the value you need to use, open your Webex AI Studio, select the bot you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select *Copy agent ID*.
+To find the value you need to use, open your Webex AI Studio, select the agent you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select *Copy agent ID*.
 
 ![Copy BotID](./assets/L3T2S1.2-CopyBotID.jpg)
 
 Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same two updates.  
 
-**Step 7.** The Event_Data setting in the VAV element allows us to pass data to the bot. In the first VAV element, we will pass in two static values. In the TrackerBotStart Settings, locate the Event Data and click on the ellipsis (three dots) in the Value.  
+**Step 7.** The Event_Data setting in the VAV element allows us to pass data to the agent. In the first VAV element, we will pass in two static values. In the TrackerBotStart Settings, locate the Event Data and click on the ellipsis (three dots) in the Value.  
 
 ![EventEllipsis](./assets/L3T2S6.1-EventDataEllipsis.jpg)
 
@@ -235,7 +235,7 @@ c. Deploy the application to the VXML Server. Right-click on the *NativeAI_Scrip
 
 ![Deploy Application](./assets/L3T4S3.1-DeployApplication.jpg)
 
-d In the window that pops-up, leave the values at their defaults. The *NativeAI_Scripted* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
+d. In the window that pops-up, leave the values at their defaults. The *NativeAI_Scripted* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
 
 e. On the CVP VXML server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Scripted\admin". Double-click *deployApp.bat*.
 
@@ -281,7 +281,25 @@ After a moment, you will see green boxes between each of the nodes. This will le
 
 ## **Task 3. Test Call Flow**
 
+In this task, we will test the Native AI agent that you created and see how the human agent sees the call.
+
 **Step 1.**
+If you are not already logged in to Finesse, open the Chrome browser, open a new tab and enter the URL: ***https://finesse1.dcloud.cisco.com***
+
+Login with the following details:
+
+ - ***Username:*** sjeffers
+ - ***Password:*** C1sco12345
+ - ***Extension:*** 1080
+ 
+ Note, that this is an SSO agent so you should only need to enter the username in the Finesse login screen. The ADFS page should have the agent credentials saved.
+
+Once you have logged in to Finesse, select ***Ready*** from the drop-down -> Next, click the ***VAV*** tab from the left side menu.
+
+ ![Finesse Login](./assets/L2T4S1-FinesseLogin.jpg)
+
+
+**Step 2.**
 Use your mobile phone to call into the number. 
 
 a. Locate the Main phone number for your session. On WKST1 open a browser and open a new tab, then in the default page that appears, select ***Demo Links*** -> ***Demo Website***.
@@ -298,23 +316,23 @@ c. In the box that pops out, select the Call Us link. In the box that pops up, n
 
  ![Main Phone Number](./assets/L3T6S2.3-MainNumber.jpg)
 
-**Step 2.**
-Use your mobile phone to call into the number. You should hear the bot greet you by name and your town, then ask how to help.
-
 **Step 3.**
+Use your mobile phone to call into the number. You should hear the agent greet you by name and your town, then ask how to help.
+
+**Step 4.**
 Recommended ways to test the agent.
 
-1. After the bot greets you by name, say "Track an order" or "I'd like to track an order".
-2. The bot will ask you for a 6-digit order number.
-3. After providing the order number, the bot will next ask you for 4-digit pin.
-4. You should now hear the bot provide you an update on the order followed by "would you like to track another order?".
+1. After the agent greets you by name, say "Track an order" or "I'd like to track an order".
+2. The agent will ask you for a 6-digit order number.
+3. After providing the order number, the agent will next ask you for 4-digit pin.
+4. You should now hear the agent provide you an update on the order followed by "would you like to track another order?".
 5. Say "Yes".
 6. Next, try a different utterance by saying "Track order 123456 with pin 7890".
-7. You should now hear the bot provide you an update on the order followed by "would you like to track another order?".
-8. You can now say "No" following which the bot should speak out the configured GoodBye message.
+7. You should now hear the agent provide you an update on the order followed by "would you like to track another order?".
+8. You can now say "No" following which the agent should speak out the configured GoodBye message.
 9. On Finesse you should now see the call come in -> accept the call on Finesse and keep the call going.
 10. On Finesse, under the ***Agent Answers*** tab you should now see the transcript of the conversation between the caller and the AI Agent.
 
 
-**Step 4.**
+**Step 5.**
 Feel free to test out a few different ways of asking for the information.
