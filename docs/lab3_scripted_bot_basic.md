@@ -329,10 +329,11 @@ Recommended ways to test the agent.
 5. Say "Yes".
 6. Next, try a different utterance by saying "Track order 123456 with pin 7890".
 7. You should now hear the agent provide you an update on the order followed by "would you like to track another order?".
-8. You can now say "No" following which the agent should speak out the configured GoodBye message.
-9. On Finesse you should now see the call come in -> accept the call on Finesse and keep the call going.
-10. On Finesse, under the ***Agent Answers*** tab you should now see the transcript of the conversation between the caller and the AI Agent.
-
 
 **Step 5.**
-Feel free to test out a few different ways of asking for the information.
+
+When you are done testing the AI Agent, ask to speak to a human agent. You should then see the call arrive at the Finesse desktop. Answer the call and notice that the transcript shows up. Notice in this version of the transcript, you can see the intents that the customer encountered in their conversation. Select the AI Assistant button (2) at the top to show the AI Assistant. Here (3), you will see a summary of the call. Finally, notice the call variable "Call Reason" (4) which gives a one sentence summary of what the customer called about.
+
+![Finesse After Call Received](./assets/L3T3S5-FinesseTranscript.jpg)
+
+**This now completes lab 3**
