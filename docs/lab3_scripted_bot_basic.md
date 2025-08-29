@@ -292,12 +292,11 @@ Login with the following details:
  - ***Password:*** C1sco12345
  - ***Extension:*** 1080
  
- Note, that this is an SSO agent so you should only need to enter the username in the Finesse login screen. The ADFS page should have the agent credentials saved.
+ Note that this is an SSO agent so you should only need to enter the username in the Finesse login screen. The ADFS page should have the agent credentials saved.
 
 Once you have logged in to Finesse, select ***Ready*** from the drop-down -> Next, click the ***VAV*** tab from the left side menu.
 
  ![Finesse Login](./assets/L2T4S1-FinesseLogin.jpg)
-
 
 **Step 2.**
 Use your mobile phone to call into the number. 

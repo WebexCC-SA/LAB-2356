@@ -352,7 +352,7 @@ Recommended ways to test the agent.
 
 **Step 5.**
 
-When you are done testing the AI Agent, ask to speak to a human agent. You should then see the call arrive at the Finesse desktop. Answer the call and notice that the transcript (1) shows up. Select the AI Assistant button (2) at the top to show the AI Assistant. Here (3), you will see a summary of the call.
+When you are done testing the AI Agent, ask to speak to a human agent. You should then see the call arrive at the Finesse desktop. Answer the call and notice that the transcript (1) shows up. Select the AI Assistant button (2) at the top to show the AI Assistant. Here (3), you will see a summary of the call. Finally, notice the call variable "Call Reason" (4) which gives a one sentence summary of what the customer called about.
 
 ![Finesse After Call Received](./assets/L2T4S5-FinesseTranscript.jpg)
 
