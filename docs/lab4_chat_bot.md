@@ -14,6 +14,10 @@ Explanation of formatting:
 - *Italics* - This indicates a button, menu option, or object that should be selected.
 - "Quoted Text" - This indicates that the text should be typed exactly as indicated.
 
+## **Instructor Demonstrated**
+
+Note, this lab is going to be instructor demonstrated. 
+
 ## **Task 1.**
 
 In this task, we will create the AI Agent and define define the agent's goal, instructions, and welcome message.

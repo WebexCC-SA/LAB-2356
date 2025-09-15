@@ -14,6 +14,10 @@ Explanation of formatting:
 - *Italics* - This indicates a button, menu option, or object that should be selected.
 - "Quoted Text" - This indicates that the text should be typed exactly as indicated.
 
+## **Expected Total Time - 60 minutes**
+
+Note, you will have about 60 minutes to complete this lab.
+
 ## **Task 1. Create an AI Agent**
 
 In this task, we will create the AI Agent and define define the agent's goal, instructions, and welcome message.
@@ -134,6 +138,40 @@ Now that you have configured the AI Agent, select the *Save Changes* button at t
 
 ![Save Changes](./assets/./L2S9-SaveChangesButton.jpg)
 
+**Step 10.**
+
+In this step, we will personalize the Knowledge Base. The current Knowledge Base is just Cisco data sheets. Let's add in some contact information for a reseller, YOU!!
+
+a. Select the Knowledge Base management link at the left.
+
+![KB Link](./assets/L2T1S10-KBLocation.jpg)
+
+b. Locate the Knowledge Base you used in step 7. As a reminder, this will include your seat number. You can use the search function to locate your Knowledge Base as shown in the image. After locating your Knowledge Base, open it by selecting the box in the search results.
+
+![KB Search Area](./assets/L2T1S10-KBSearch.jpg)
+
+c. Feel free to review the Knowledge Base area to see what files are already uploaded. Select the *Documents* menu at the top of the screen to add in the custom content.
+
+![Documents Menu in KB](./assets/L2T1S10-DocumentsMenu.jpg)
+
+d. Select the *+ Create Document* link in the middle of the page.
+
+![Create Document](./assets/L2T1S10-CreateDocument.jpg)
+
+e. In the *Create Document* pop-up, provide a name for the document. A suggested title is shown. Leave the category option as *Add to existing category* and the *Select existing category* dropdown as "Unassigned". Select *Save* after providing a name.
+
+![Create Document Pop-up](./assets/L2T1S10e-CreateDocumentPopup.jpg)
+
+f. In the text area, use the example shown in the image to add your own company name and information (or make one up). Feel free to be creative here. Once you have filled this out, select the *Save* button at the top of the document.
+
+![Filled Out Document](./assets/L2T1S10f-FilledOutDocument.jpg)
+
+g. After a few seconds to a minute, you should see a message that the document was successfully added. After you see this message, select the *Information* menu at the top of the page. You should see that the custom document in the history. If you do not see this immediately, select the *Refresh* icon at the top of the Activity History.
+
+![Information Menu](./assets/L2T1S10g-InformationMenu.jpg)
+
+You are now ready to test the agent.
+
 ## **Task 2. Test AI Agent and Review Session History**
 
 In this task, you will test the AI Agent that you created above. This will let you validate that everything is working correctly. Cisco supports testing with both text and voice.
@@ -154,7 +192,7 @@ You will see your Welcome message come up on the screen. To begin testing, type 
 
 ![First Response from Agent](./assets/L2T2S2-FirstResponse.jpg)
 
-Continue to interact with the agent and ask questions. You may want to ask which headsets are bluetooth enabled or which ones have boom mics. To test the guardrails, ask it a non-related question such as, "What is the weather in San Diego today?"
+Continue to interact with the agent and ask questions. You may want to ask which headsets are bluetooth enabled or which ones have boom mics. To test the guardrails, ask it a non-related question such as, "What is the weather in San Diego today?" To see the custom information you added to the agent, ask, "Which partner can sell this to me?" You should see the information you added.
 
 **Step 3. Review Session History**
 
@@ -162,15 +200,15 @@ After you have done testing the Agent are are satisfied with the results, select
 
 ![Sessions Menu Location](./assets/L2T2S3-SessionsMenu.jpg)
 
-Locate the session record for the test session and click on it. 
+Locate the session record for the test session and click on it.
 
 ![List of Sessions](./assets/L2T2S3-ListofSessions.jpg)
 
-You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine. 
+You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine.
 
 ![Session Details](./assets/L2T2S3-SessionDetails.jpg)
 
-Click the down arrow next to the Knowledge Base to review the documents and pages where the agent generated the information. Notice as you scroll down, you can see each document which information was pulled from and the specific page and content. 
+Click the down arrow next to the Knowledge Base to review the documents and pages where the agent generated the information. Notice as you scroll down, you can see each document which information was pulled from and the specific page and content.
 
 ![Knowledge Used](./assets/L2T2S3-KnowledgeUse.jpg)
 

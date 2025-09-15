@@ -16,6 +16,10 @@ Explanation of formatting:
 - *Italics* – This indicates a button, menu option, or object that should be selected.
 - "Quoted Text" – This indicates that the text should be typed exactly as indicated.
 
+## **Expected Total Time - 60 minutes**
+
+Note, you will have about 60 minutes to complete this lab.
+
 ## **Task 1. Import and Customize an Agent**
 
 In this task, we will import an agent that we have configured for you ahead of time.
