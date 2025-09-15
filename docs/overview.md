@@ -2,7 +2,7 @@
 
 ## Learning Objectives
 
-This lab will give you an introduction to ...
+This lab will give you an introduction to Cisco's new Native AI for Contact Center Enterprise. This session focuses on the benefits of the new contact center AI and cloud services within Cisco Contact Center Enterprise (UCCE/PCCE/WxCCE) for large enterprises looking to take advantage of cloud contact center services either in part or in full. We intend to show you how to implement several of these cloud-based services either hands-on or step-through to include setup, base functionality, and basic troubleshooting. This session is ideal for IT professionals or decision-makers involved in managing and planning to accelerate their business value with new contact center enterprise AI and cloud service offerings.
 
 ## Disclaimer
 
@@ -10,12 +10,8 @@ Although the lab design and configuration examples could be used as a reference,
 
 ## Lab Access
 
-From your workstation open an RDP (Remote Desktop) session to the following host named "wkst1":
-
-- IP: 1.2.3.4
-- Username: corp\demouser
-- Password: C1sco12345
+You will use a dCloud Expo Session to access this lab.
 
 ## Getting Started
 
-This lab leverages Cisco dCloud ...
+Select the ![Lab Introduction](./lab1_environment_intro.md) link to get started or select the *Lab* menu at the top of the screen.
