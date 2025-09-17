@@ -156,7 +156,7 @@ a. In the AI Agent configuration, navigate to ***Script*** -> ***Responses*** ->
 
 ![welcome message edit chat](./assets/L2-27.png)
 
-b. On the left side of the response window, click on the previously created conditional response "check_if_name_is_passed" -> Select the ***Rules*** tab. 
+b. On the left side of the response window, click on the previously created conditional response "check_if_name_is_passed" -> Select the ***Rules*** tab.
 
 c. Click the ***+OR Condition*** button and enter as below:
 
@@ -220,7 +220,7 @@ Getting your package details now...
 
 a. In the AI Agent configuration, navigate to ***Script*** -> ***Responses*** -> click on the ***track_order_results*** response.
 
-b. On the left side of the response window, click on the previously created conditional response "order_status_check" -> Select the *Rules* tab 
+b. On the left side of the response window, click on the previously created conditional response "order_status_check" -> Select the *Rules* tab
 
 c. Click the ***+OR Condition*** button and enter as below:
 
@@ -270,15 +270,11 @@ Thank you for your response! I will now connect you to a live agent for further 
 
 ### **Task 3. Import and Configure the Native AI Inbound Chat Flow**
 
-**Step 1.** Navigate to this link to download the "AI Agent Chat Inbound Flow" on to the Downloads folder
-
-*Link*
+**Step 1.** Navigate to this [link](./downloads/Scripted_Inbound.zip). Unzip this to a location on your computer.
 
 **Step 2.** Log into Webex Control Hub ***admin.webex.com*** and navigate to ***Contact Center*** -> ***Digital*** -> ***Webex Connect***. This opens up the Webex Connect portal.
 
  ![Connect Portal](./assets/L5-14.png)
-
-
 
 **Step 3.** Navigate to Services tab and select the Service created for you seat number.
 
