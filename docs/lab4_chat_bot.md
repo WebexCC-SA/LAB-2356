@@ -16,13 +16,13 @@ Explanation of formatting:
 
 **Instructor Demonstrated**
 
-Note, this lab is going to be instructor demonstrated. There are no tasks that you will do in this lab. The lab guide is provided for you 
+Note, this lab is going to be instructor demonstrated. There are no tasks that you will do in this lab. The lab guide is provided for you to refer to later.
 
-## Section 1 - Add Autonomous AI Agent to Inbound chat flow
+## **Section 1 - Add Autonomous AI Agent to Inbound chat flow**
 
 In this section we will integrate the Autonomous AI agent to a inbound chat flow. You will not perform any of the steps in this section, they are simply for your reference.
 
-# **Task 1. Import Inbound Flow**
+### **Task 1. Import Inbound Flow**
 
 **Step 1.** Download a customized Inbound flow by selecting the [link](./downloads/AutonomousAI_Inbound.zip). Unzip this to a location on your computer.
 
@@ -68,11 +68,29 @@ d. Review the remaining nodes in the workflow. These are as follows:
 
 e. At any point if the customer asks to speak to an agent, the AI Agent Node will take the onAgentHandover exit path and will be sent to CCE for agent handling.
 
-## Section 2 - Scripted AI Agent Steps
+### **Task 2. Save and make Live**
+
+**Step 1.** Save the Flow.
+
+Save your changes by selecting *Save* at the top of the screen. If any messages come up that nodes are not configured, select each message, then check to ensure that the node is correctly configured and saved. Some nodes simply need to be opened and saved after a workflow has been imported.
+
+**Step 2.** Make Flow live and map to an application.
+
+![Make Live Dialog](./assets/L4T2S2-MakeLive.jpg)
+
+Select the *Make Live* button at the top of the work flow. In the *Make Live Configuration* dialog box, select the application you wish to map this flow to. It will take several seconds to a minute for the flow to go live.
+
+**Task 3. Install to Chat**
+
+The steps to customize the chat interface and install in a web site will not be covered in detail in this section.
+
+You can find details at this [link](https://www.cisco.com/c/dam/en/us/td/docs/voice_ip_comm/cust_contact/contact_center/icm_enterprise/wxengage_for_digital_channels/admin/guide/Administration_and_Setup_Guide_for_Webex_Engage_with_CCE.pdf){:target="_blank"}
+
+## **Section 2 - Scripted AI Agent Steps**
 
 Note: This is not going to be shown in the class but is here so you can see what changes need to be made to the AI agent to add in chat support.
 
-# **Task 1. Create Intents**
+### **Task 1. Create Intents**
 
 In this task, we will create the following 2 Intents
 
@@ -120,7 +138,7 @@ e. Lastly, click ***Create*** to complete the "Chat Order Results" intent config
 
 ![Create Intent - COR](./assets/L5-03.png)
 
-# **Task 2. Update Responses for the Default channel (web)**
+### **Task 2. Update Responses for the Default channel (web)**
 
 In this task, we will be updating the following responses - Default channel (web) - Chat
 
@@ -250,7 +268,7 @@ Thank you for your response! I will now connect you to a live agent for further 
 
  ![Goodbye chat](./assets/L5-13.png)
 
-# **Task 3. Import and Configure the Native AI Inbound Chat Flow**
+### **Task 3. Import and Configure the Native AI Inbound Chat Flow**
 
 **Step 1.** Navigate to this link to download the "AI Agent Chat Inbound Flow" on to the Downloads folder
 
@@ -289,10 +307,10 @@ Thank you for your response! I will now connect you to a live agent for further 
 
  ![Save and Make Live](./assets/L5-24.png)
 
-# **Task 4. Install to Chat**
+### **Task 4. Install to Chat**
 
 The steps to customize the chat interface and install in a web site will not be covered in detail in this section.
 
-You can find details at this ![link](https://www.cisco.com/c/dam/en/us/td/docs/voice_ip_comm/cust_contact/contact_center/icm_enterprise/wxengage_for_digital_channels/admin/guide/Administration_and_Setup_Guide_for_Webex_Engage_with_CCE.pdf){:target="_blank"}
+You can find details at this [link](https://www.cisco.com/c/dam/en/us/td/docs/voice_ip_comm/cust_contact/contact_center/icm_enterprise/wxengage_for_digital_channels/admin/guide/Administration_and_Setup_Guide_for_Webex_Engage_with_CCE.pdf){:target="_blank"}
 
 **This now completes lab 4**
