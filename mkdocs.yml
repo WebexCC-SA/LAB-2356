@@ -45,10 +45,10 @@ extra_javascript:
 plugins:
   - search
   - macros
-  # - with-pdf:
-  #     cover_title: LAB-2356
-  #     cover_subtitle: Implementing AI and cloud-based services for your Contact Center Enterprise
-  #     cover_logo: template_assets/Wx1_25_PDF_image.jpg
+   - with-pdf:
+       cover_title: LAB-2356
+       cover_subtitle: Implementing AI and cloud-based services for your Contact Center Enterprise
+       cover_logo: template_assets/Wx1_25_PDF_image.jpg
   - glightbox:
       touchNavigation: true
       loop: false
