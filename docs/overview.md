@@ -14,4 +14,4 @@ You will use a dCloud Expo Session to access this lab.
 
 ## Getting Started
 
-Select the ![Lab Introduction](./lab1_environment_intro.md) link to get started or select the *Lab* menu at the top of the screen.
+Select the *Lab* menu at the top of the screen.
