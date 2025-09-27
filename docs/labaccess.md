@@ -4,7 +4,7 @@ We have 3 tenants that will be shared for this class. At your seat, you will see
 
 | **Tenant Number** | **Username** | **Password** |
 | --- | --- | --- |
-| 1 | CiscoWxConnect2+tenant01@gmail.com | CLUS25NativeAI! |
+| 1 | CiscoWxConnect2+tenant01@gmail.com | NativeAIWx1!! |
 
 
 Note: The Webex Control Hub URL is always: [https://admin.webex.com](https://admin.webex.com){:target="_blank"}
