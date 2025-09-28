@@ -11,15 +11,15 @@ Note: The Webex Control Hub URL is always: [https://admin.webex.com](https://adm
 
 # dCloud Access
 
-We are using Cisco eXpo for this lab. The lab proctors have opened the eXpo page on each workstation before the class. If you do not see the eXpo start page shown in the image, please contact a proctor immediately.
+We are using Cisco eXpo for this lab. Please open [the Expo URL](https://expo.ciscodcloud.com/b19ehwdofr8xlyx2dn5jg6vdr){:target="_blank"} to start the lab.
 
-![eXpo Start Page](./assets/ACCESS-expo-start.jpg)
+![eXpo Start Page](./assets/LabAccess-ExpoStart.jpg)
 
 1. We have assigned you to a tenant to use for this session. Please locate the tenant number for your seat (located on a note next to your workstation), then select the *Explore* button that corresponds to your tenant.
 
 2. Enter your email, then check the box to accept the dCloud Terms & Conditions. When you have done this, select *Continue*.
 
-    ![Terms and Conditions](./assets/ACCESS-TsAndCs.jpg)
+    ![Terms and Conditions](./assets/LabAccess-EmalEntrySmall.jpg)
 
 3. If you click Continue and see this error, click OK and notify your Lab Proctor right away so we can assign you to a different tenant.
 
