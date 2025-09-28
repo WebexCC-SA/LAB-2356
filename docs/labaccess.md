@@ -1,11 +1,10 @@
 # Webex Tenant Access
 
-We have 3 tenants that will be shared for this class. At your seat, you will see a note that indicates which tenant you will use for this class. Please refer to the table below for the login details.
+We will be using a Tenant which has already been configured for this class. Please refer to the table below for the login details.
 
 | **Tenant Number** | **Username** | **Password** |
 | --- | --- | --- |
 | 1 | CiscoWxConnect2+tenant01@gmail.com | NativeAIWx1! |
-
 
 Note: The Webex Control Hub URL is always: [https://admin.webex.com](https://admin.webex.com){:target="_blank"}
 
@@ -27,7 +26,7 @@ We are using Cisco eXpo for this lab. Please open [the Expo URL](https://expo.ci
 
 4. You are assigned a session. Select the *Remote Desktop* link next to WKST1 to open the jump box we will use for the entire lab.
 
-    ![Session Start](./assets/ACCESS-SessionPage.jpg)
+    ![Session Start](./assets/LabAccess-SessionPageWx1.jpg)
 
 # Lab Topology
 
@@ -52,8 +51,6 @@ This demonstration includes several VMs. Most of the servers are fully configura
 | Workstation 1 | wkst1 | 198.18.133.75 | DCLOUD\\sjeffers | C1sco12345 |
 | Workstation 2 | wkst2 | 198.18.133.76 | DCLOUD\\rbarrows | C1sco12345 |
 | vCube | cc-vcube | 198.18.133.226 | admin | C1sco12345 |
-
-#
 
 # Agent and User Information
 
