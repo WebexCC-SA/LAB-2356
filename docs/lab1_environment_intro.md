@@ -9,6 +9,8 @@ This is a read-only lab there are no configuration tasks you need to accomplish.
 - Understand the Webex AI Agent Call Flow
 - Know how to access the components used to deliver this lab and how to access each part.
 
+**Expected Total Time - 15 minutes**
+
 ## **Task 1. Introduction to Webex AI Agent**
 
 Webex AI Agent refers to an artificial intelligence virtual agent integrated into Cisco WebexCCE or CCE. These AI Agents are designed to enhance customer service and support by automating interactions, assisting human agents, and providing analytics-driven insights.
