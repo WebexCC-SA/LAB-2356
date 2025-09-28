@@ -72,7 +72,7 @@ Review the flow diagram below for the details of how the components communicate.
 
 In this task, we will log in to the components that are used in this lab. The goal is to understand where we need to go to configure, maintain, and troubleshoot these features.
 
-**Step 1. Access dCloud systems*
+**Step 1. Access dCloud systems**
 
 Follow the steps in the *Credentials* tab to access the dCloud eXpo session. Once you are logged into WKST1, locate the mRemoteNG icon and double-click to open.
 
@@ -98,7 +98,7 @@ Review the items in this section.
 
 ![General](./assets/L1T3S2.3-CH_General.jpg)
 
-**Digital** – This menu is where you can upload the public key certificate to decrypt the SAML assertion. You can access both Webex Connect and Webex Engage from this menu. All tenants used in this lab are based in Ireland where the changes you see below have not been made live. In these tenants you will see only the public key certificate section.
+**Digital** – This menu is where you can upload the public key certificate to decrypt the SAML assertion. You can access both Webex Connect and Webex Engage from this menu.
 
 ![Digital](./assets/L1T3S2.4-CH_Digital.jpg)
 
@@ -106,7 +106,7 @@ Review the items in this section.
 
 ![Integrations](./assets/L1T3S2.5-CH_Integration.jpg)
 
-**Cloud Connect** – This menu is where you would add the Cloud Connect server to the tenant. Since we have shared tenants, this part needed to be done ahead of time. Please DO NOT change any information shown in this section.
+**Cloud Connect** – This menu is where you would add the Cloud Connect server to the tenant. Since we have shared tenants, this part needed to be done ahead of time. *Please DO NOT change any information shown in this section.**
 
 ![Cloud Connect](./assets/L1T3S2.6-CH_CCC.jpg)
 
@@ -116,11 +116,11 @@ Navigate to the AI Agents section of Control Hub. Select the link, *What are AI 
 
 ![AI Agent Studio button](./assets/L1T3S3.1-AIAgentButton.jpg)
 
-Select the *Build your AI Agent* button. This will open a new tab to the Webex Bot Builder. We have created an example bot in each tenant. If you wish, take a moment to review the bot. You will build your own bot in the coming labs.
+Select the *Build your AI Agent* button. This will open a new tab to the Webex AI Agent Studio. You will see that there is one Scripted AI Agent template there, this is simply a placeholder. You will build your own AI Agent in the coming labs.
 
 ![AI Agent Studio](./assets/L1T3S3-AIAgentStudio.jpg)
 
-Next, select the second icon in the black menu bar on the left. This opens the Knowledge base management section. We will not be using this feature here as it is used for Autonomous Agents.
+Next, select the second icon in the black menu bar on the left. This opens the Knowledge base management section. To save time in the class, we have created Knowledge Bases for each seat.
 
 Finally, select the third icon down. This opens a tab to the documentation for the Webex AI Agent Studio.
 

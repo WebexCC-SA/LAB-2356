@@ -14,13 +14,13 @@ We are using Cisco eXpo for this lab. Please open [the Expo URL](https://expo.ci
 
 ![eXpo Start Page](./assets/LabAccess-ExpoStart.jpg)
 
-1. We have assigned you to a tenant to use for this session. Please locate the tenant number for your seat (located on a note next to your workstation), then select the *Explore* button that corresponds to your tenant.
+1. Select the *Explore* button to get started.
 
-2. Enter your email, then check the box to accept the dCloud Terms & Conditions. When you have done this, select *Continue*.
+2. In the Terms and Conditions bot, enter your email, then check the box to accept the dCloud Terms & Conditions. When you have done this, select *Continue*.
 
     ![Terms and Conditions](./assets/LabAccess-EmalEntrySmall.jpg)
 
-3. If you click Continue and see this error, click OK and notify your Lab Proctor right away so we can assign you to a different tenant.
+3. If you click Continue and see this error, click OK and notify your Lab Proctor right away so we can assist you.
 
     ![No Sessions Error](./assets/ACCESS-NoSessions.jpg)
 
