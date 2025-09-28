@@ -2,7 +2,7 @@
 
 ## **Objectives**
 
-In this lab you will build a scripted AI agent that can respond to both chat and voice channels:
+In this lab you will build a Scripted AI agent that can respond to both chat and voice channels:
 
 - Know how to import an exported agent
 - Know how to create Intents, Entities, and Responses
@@ -22,7 +22,7 @@ Note, you will have about 60 minutes to complete this lab.
 
 ## **Task 1. Import and Customize an Agent**
 
-In this task, we will import an agent that we have configured for you ahead of time.
+In this task, we will import an agent that we have configured for you ahead of time. The full steps to configure a Scripted AI Agent would take more time than we have for this lab so we have simplified quite a bit.
 
 **Step 1.** Download the example agent and import into AI Agent Studio
 
@@ -32,11 +32,11 @@ b. In AI Agent Studio, select the *Import agent* button at the top, right side o
 
 ![Import Agent](./assets/L3T1S1-ImportAgent.jpg)
 
-c. Select the *Upload* button, then navigate to where you extracted the Agent and select it to import. Provide an agent name that in unique. To do this, include your seat number in the format of, "S01 - My Order Fulfillment Agent". Note that the System ID will be automatically generated, accept the default. After validating that everything is correct, select the *Import* button at the bottom, right of the page.
+c. Select the *Upload* button, then navigate to where you extracted the Agent and select it to import. Provide unique agent name. To do this, include your seat number in the format of, "S01 - My Order Fulfillment Agent". The System ID will be automatically generated, accept the default. After validating that everything is correct, select the *Import* button at the bottom, right of the page.
 
 ![Completed Import Screen](./assets/L3T1S1c-FilledInImport.jpg)
 
-**Step 2.** Add Intent and Response to collect required information
+**Step 2.** Add Intent and Response to collect required information. Rather than have you create all the Intents and Responses, you will only create one sample Intent and its corresponding Response.
 
 a. In the AI Agent configuration, navigate to ***Script*** -> ***Intents*** -> click on the ***Create intent*** button.
 
@@ -44,13 +44,13 @@ a. In the AI Agent configuration, navigate to ***Script*** -> ***Intents*** -> c
 
 b. Enter the Intent name as "Start Order Tracking" and enable the toggle button to ***Reset slots after completion***.
 
-c. Under the ***Intent and Utterances*** section, type the phrase "Track my order" and click the ***Add** button.
+c. Under the ***Intent and Utterances*** section, type the phrase, "Track my order" and click the ***Add*** button.
 
 ![Utterance 1](./assets/L2-10.png)
 
 d. Next, add a 2nd utterance by typing "track order number 123456 with pin 1234" and clicking the ***Add*** button.
 
-- As soon as the 2nd utterance is added, the 6 digit number and the 4 digit pin will be highlighted and previously created entities of 'order_number' and 'user_pin' are added under the ***Slot filling*** section.
+- As soon as the 2nd utterance is added, the 6 digit number and the 4 digit pin will be highlighted and previously created entities of "order_number" and "user_pin" are added under the ***Slot filling*** section.
 - In the Slot filling section, check the ***Required*** box for each of these slots.
 
  ![Utterance 2](./assets/L2-12.jpg)
@@ -61,8 +61,8 @@ d. Next, add a 2nd utterance by typing "track order number 123456 with pin 1234"
 > What is a slot?
 >> The value collected for an entity is called a slot. Consider the following analogy, entity is a variable name and slot is the value of that variable.
 
-> Why do I need to create a slot here? 
->> As part of the Intent, the agent needs to collect the basic info like order number and the user pin so that these 2 values can be passed to go look for the status of an order in the database.
+> Why do I need to create a slot here?
+>> As part of the Intent, the agent needs to collect the basic info like order number and the user pin so that these 2 values can be passed to the API to look for the status of an order in the database.
 
 e. Add the Response for missing order number by selecting the drop-down next to the order_number entity in the *Slot filling* section. In the search box, begin typing the phrase "order_number" and select the Custom response named, "order_number".
 
@@ -120,7 +120,7 @@ d. Now, click on the ***Custom Event*** button to the right to create a custom e
 custom_event
 ```
 - **Event payload:** 
-```
+```json
 {
   "Execute_Request": {
     "Data": {
@@ -133,7 +133,6 @@ custom_event
   }
 }
 ```
-
 e. Lastly, click ***Create*** and this will take you back to the "Start Order Tracking" Intent configuration page.
 
 ![Response-I2](./assets/L2-52.png)
@@ -146,15 +145,35 @@ Verify that you've completed all of the required configurations as seen in the s
 
 ![Verify Intent config 1](./assets/L2-26.png)
 
+**Step 7.**
+
+a. On the top right of the AI agent configuration dashboard, click on ***Save changes***.
+
+ ![Intent No](./assets/L2-45.png)
+
+b. Next, click on the Publish button which then loads a prompt to enter a comment to track the saves/changes made to the AI Agent.
+
+Enter a comment as desired and click ***Publish***.
+
+ ![Intent No](./assets/L2-46.png)
+
+Normally, we'd test the AI Agent at this point using Preview. However, as there is no API that can be called from the AI Agent Studio, you would only be able to chat until the data is attempted to be returned to CVP. You may still feel free to try out the agent in preview mode to see the initial responses, but it is not required.
+
 ## **Task 2. Integrate to Call Flow**
 
-We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
+We have now created an AI Agent. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.
 
 **Step 1.** Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
 
-**Step 2.** Open a browser on the CVP server and download the application by clicking on, [NativeAI_Scripted](./downloads/NativeAI_Scripted.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
+**Step 2.** Open a browser on the CVP server and download the application copying the link below and pasting it into the browser.
+
+```
+https://webexcc-sa.github.io/LAB-2356/downloads/NativeAI_Scripted.zip
+```
+
+Remember where you download this (it will default to the Downloads folder for the Administrator) to as you will need it in step 3. You do not need to extract the zip.
 
 **Step 3.** Import the application you have downloaded.
 
@@ -166,7 +185,7 @@ We have now created an AI Agent and have tested it to ensure it's working. We ar
 
     ![Import Dialog Box](./assets/L3T1S3-ImportArchive.jpg)
 
-- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. You should **not** import the *CLUS_NativeAI.zip* file in the downloads directory. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Scripted.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select *Finish*.
+- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Scripted.zip_expanded" and leave the "NativeAI_Scripted.zip_expanded\NativeAI_Scripted" selected. Refer to the image and once all options are set, select *Finish*.
 
     ![Import Application Dialog](./assets/L3T3S3-ScriptedImportArchiveDialog.jpg)
 
@@ -189,10 +208,10 @@ Refer to the table for what each element is used for.
 | TrackerBotStartDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotStart VAV element. |
 | TrackerBotOrderStatusDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotOrderStatus VAV element. |
 | ErrorMessage | Audio | Audio elements allow script to play either static audio files or play text to speech files through an ASR/TTS server. |
-| AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
-| ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
+| AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This flag indicates that the customer requested to speak to an agent. |
+| ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This flag indicates that the AI Agent encountered an error. |
 | SetOrderNumber | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetOrderNumber element is used to parse information returned from the agent and set values to be used in the GetOrderDetails element. |
-| SetMessageToReturn | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetMessageToReturn element is used to parse the information returned by the RESTful API and set this to a variable to be sent back to the bagentt. |
+| SetMessageToReturn | Set Value | Set Value elements allow you to define and assign values to local variables. They also allow you to use Java and Javascript to set these variables based on other data in the script. The SetMessageToReturn element is used to parse the information returned by the RESTful API and set this to a variable to be sent back to the AI Agent. |
 | GetOrderDetails | Rest_Client | This element allows us to call the RESTful API with details from the agent to get information about the order. |
 
 Once you have imported the app, you are ready to start configuring the elements required to interact with the agent.
@@ -235,13 +254,13 @@ b. Validate the application. Right-click the *NativeAI_Scripted* application and
 
 Check the errors grid at the bottom of the screen to ensure nothing is shown. If you do see any errors, review the error and resolve the issue by referring back to the portion of the lab where that item was configured.
 
-c. Deploy the application to the VXML Server. Right-click on the *NativeAI_Scripted* application and select *Deploy*.
+c. Deploy the application to the VXML Server (located on the CVP server you are logged into). Right-click on the *NativeAI_Scripted* application and select *Deploy*.
 
 ![Deploy Application](./assets/L3T4S3.1-DeployApplication.jpg)
 
 d. In the window that pops-up, leave the values at their defaults. The *NativeAI_Scripted* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
 
-e. On the CVP VXML server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Scripted\admin". Double-click *deployApp.bat*.
+e. On the CVP server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Scripted\admin". Double-click *deployApp.bat*.
 
 f. In the command window that pops up, type "yes" to confirm that you want to deploy the application. Hit enter one more time after the application has been deployed to close the command prompt window.
 

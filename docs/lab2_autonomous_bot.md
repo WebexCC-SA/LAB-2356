@@ -4,9 +4,9 @@
 
 In this lab, you will learn about Autonomous AI Agents. You will see how to create an Autonomous AI Agent and map it to a knowledge base. You will learn how to do all of the following tasks:
 
-- Know how to create an Autonomous AI Agent from scratch and map it to a knowledge base.
+- Know how to create an Autonomous AI Agent from scratch.
 - Create an agent goal, instructions, and welcome message.
-- Understand how to configure and use fulfillment.
+- Understand where to map a Knowledge Base and how to update the Knowledge Base.
 - See how to integrate the AI Agent into a call studio script.
 
 Explanation of formatting:
@@ -46,7 +46,7 @@ Select ***Start from scratch*** and then click the ***Next*** button to the bott
 
 Select ***Autonomous*** in the type of agent box. In the ***Add the essential details*** form:
 
-- Provide an Agent Name of your choice. Ensure that it is unique by including your seat number at the beginning  Ex. "S01 - My AI Agent"
+- Provide an Agent Name of your choice. Ensure that it is unique by including your seat number at the beginning.  ex. "S01 - My AI Agent"
 - The System ID is auto-generated.
 - The AI engine should be left as Webex AI Pro 1.0.
 
@@ -230,7 +230,13 @@ We have now created an AI Agent and have tested it to ensure it's working. We ar
 
 ![Open Studio](./assets/L3T1S2.1-OpenCallStudio.jpg)
 
-**Step 2.** Open a browser on the CVP server and download the application by clicking on, [NativeAI_Autonomous](./downloads/NativeAI_Autonomous.zip). Remember where you download this to as you will need it in step 3. You do not need to extract the zip.
+**Step 2.** Open a browser on the CVP server and download the application copying the link below and pasting it into the browser.
+
+```
+https://webexcc-sa.github.io/LAB-2356/downloads/NativeAI_Autonomous.zip
+```
+
+Remember where you download this (it will default to the Downloads folder for the Administrator) to as you will need it in step 3. You do not need to extract the zip.
 
 **Step 3.** Import the application you have downloaded.
 
@@ -242,7 +248,7 @@ We have now created an AI Agent and have tested it to ensure it's working. We ar
 
     ![Import Dialog Box](./assets/L3T1S3-ImportArchive.jpg)
 
-- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. You should **not** import the *CLUS_NativeAI.zip* file in the downloads directory. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Autonomous.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select *Finish*.
+- In the *Import Projects from Folder or Archive* dialog box, select the *Archive* button at the top of the box, then navigate to where you downloaded the example application and select it. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Autonomous.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select *Finish*.
 
     ![Import Application Dialog](./assets/L2T3S3-AutoImportArchiveDialog.jpg)
 
@@ -261,29 +267,29 @@ Refer to the table for what each element is used for.
 | CVP Subdialog Start_01 | CVP Subdialog Start | Mandatory element for all Comprehensive Call Flows to receive data from CCE. |
 | CVP Subdialog End_01 | CVP Subdialog End | Mandatory element for all Comprehensive Call Flows to return data to CCE. |
 | HeadsetAgent | VirtualAgentVoice | VAV element which allows CCE to interact with the Native AI agent. |
-| HeadsetAgentDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the TrackerBotStart VAV element. |
+| HeadsetAgentDecision | Decision | Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the HeadsetAgent VAV element. |
 | ErrorMessage | Audio | Audio elements allow script to play either static audio files or play text to speech files through an ASR/TTS server. |
-| AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
-| ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
-| SessionEndFlag |  Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken |
+| AgentFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This Flag will indicate that the customer requested to speak to an agent. |
+| ErrorFlag | Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This flag will indicate that the AI Agent encountered an error. |
+| SessionEndFlag |  Flag | Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This flag will indicate that the AI Agent completed and no agent was requested. |
 
 Once you have imported the app, you are ready to start configuring the elements required to interact with the agent.
 
 **Step 6.**  Update the VAV Element with the Agent ID from AI Agent Studio.
 
-a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV bot you will be working with. Notice that we have selects the value, *Autonomous* in the dropdown.
+a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV bot you will be working with. Notice that we have selected the value, *Autonomous* from the dropdown.
 
 ![Webex AI Agent Dropdown](./assets/L2T3S6a-AutoDropDown.jpg)
 
-b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and may not be in the tenant you are using.
+b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and will not be in the tenant you are using.
 
 ![Bot ID Field](./assets/L2T3S6b-BotID.jpg)
 
-To find the value you need to use, open your Webex AI Studio, select the bot you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select *Copy agent ID*.
+To find the value you need to use, go to the Webex AI Studio tab and select the AI Agent you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select *Copy agent ID*.
 
 ![Copy BotID](./assets/L3T2S1.2-CopyBotID.jpg)
 
-Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same two updates.  
+Paste the agent ID you copied into the value for *Bot ID.*
 
 **Step 7.** Deploy the Application
 
@@ -295,13 +301,13 @@ b. Validate the application. Right-click the *NativeAI_Auto* application and sel
 
 Check the errors grid at the bottom of the screen to ensure nothing is shown. If you do see any errors, review the error and resolve the issue by referring back to the portion of the lab where that item was configured.
 
-c. Deploy the application to the VXML Server. Right-click on the *NativeAI_Auto* application and select *Deploy*.
+c. Deploy the application to the VXML Server (located on the CVP server you are logged into). Right-click on the *NativeAI_Auto* application and select *Deploy*.
 
 ![Deploy Application](./assets/L3T4S3.1-DeployApplication.jpg)
 
 d In the window that pops-up, leave the values at their defaults. The *NativeAI_Auto* application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click *Finish*.
 
-e. On the CVP VXML server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Auto\admin". Double-click *deployApp.bat*.
+e. On the CVP server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Auto\admin". Double-click *deployApp.bat*.
 
 f. In the command window that pops up, type "yes" to confirm that you want to deploy the application. Hit enter one more time after the application has been deployed to close the command prompt window.
 
