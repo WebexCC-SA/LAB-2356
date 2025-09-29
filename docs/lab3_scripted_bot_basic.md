@@ -218,11 +218,11 @@ Once you have imported the app, you are ready to start configuring the elements 
 
 **Step 6.**  Update the VAV Element with the Agent ID from AI Agent Studio.
 
-a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV agent you will be working with. Notice that we have selects the value, *Scripted* in the dropdown.
+a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV agent you will be working with. Notice that we have selected the value, *Scripted* in the dropdown.
 
 ![Scripted agent Selection](./assets/L3T2S1.1-ScriptedBotSelection.jpg)
 
-b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and may not be in the tenant you are using.
+b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and will not be in the tenant you are using.
 
 ![agent ID Field](./assets/L3T2S1.3-BotIDFilled.jpg)
 
@@ -230,13 +230,13 @@ To find the value you need to use, open your Webex AI Studio, select the agent y
 
 ![Copy BotID](./assets/L3T2S1.2-CopyBotID.jpg)
 
-Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same two updates.  
+Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same update.
 
 **Step 7.** The Event_Data setting in the VAV element allows us to pass data to the agent. In the first VAV element, we will pass in two static values. In the TrackerBotStart Settings, locate the Event Data and click on the ellipsis (three dots) in the Value.  
 
 ![EventEllipsis](./assets/L3T2S6.1-EventDataEllipsis.jpg)
 
-You will see a settings box in the middle of your screen. This allows you to pass JSON formatted key/value pairs. You can pass individual values or even JSON into this. We will pass two values, name and place. For the name field, pass in your first name. For the location field, pass in the state where you are from. If your state or location has two names like North Carolina, pass this with single quotes around it. Refer to the example shown.  
+You will see a settings box in the middle of your screen. This allows you to pass JSON formatted key/value pairs. You can pass individual values or even JSON into this. We will pass two values, name and place. For the name field, type in your first name. For the location field, type in the state or location where you are from. If your state or location has two names like North Carolina, pass this with single quotes around it. Refer to the example shown.  
 
 ![EventPopulated](./assets/L3T2S6.2-EventDataPopulated.jpg)
 
