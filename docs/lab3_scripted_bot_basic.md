@@ -145,7 +145,31 @@ Verify that you've completed all of the required configurations as seen in the s
 
 ![Verify Intent config 1](./assets/L2-26.png)
 
-**Step 7.**
+**Step 7.** Add Inbound Intents
+
+a. In the AI Agent configuration, navigate to ***Script*** -> ***Responses*** -> click on the ***Welcome message*** response.
+
+   ![welcome message edit](./assets/L2-27.png)
+
+b. Next, select the Voice channel response located next to Default (web).
+
+ ![Voice Channel 60](./assets/L2-60.png)
+
+c. In the incoming event name, enter "welcome_event". Once you have done this, select the *Save* button at the bottom to return to the list of responses.
+
+![Welcome Event Added](./assets/Scripted-AddWelcomeEvent.jpg)
+
+d. In the AI Agent configuration, navigate to ***Script*** -> ***Responses*** -> Click on the magnifying glass next to "Response Name" to search for a response. Type in the first few letters of, "track_order_results". Locate the Response in the list, and select it to edit it.
+
+![Find Track Order Results](./assets/Scripted-FindTrackOrderResults.jpg)
+
+e. In the incoming event name, enter "track_order_results". Once you have done this, select the *Save* button at the bottom to return to the list of responses.
+
+![Track Order Results Event Added](./assets/Scripted-AddTrackOrderResults.jpg)
+
+Why did we need to do this? When the AI Agent is called from Call Studio, we need to tell the Agent where it should start. This is what the incoming event name field allows us to do. When you see the Call Studio application in the steps below, notice that we have specified the welcome_event in the first node and the track_order_results in the second.
+
+**Step 8.**
 
 a. On the top right of the AI agent configuration dashboard, click on ***Save changes***.
 
@@ -218,19 +242,19 @@ Once you have imported the app, you are ready to start configuring the elements 
 
 **Step 6.**  Update the VAV Element with the Agent ID from AI Agent Studio.
 
-a. Select the HeadsetAgent VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV agent you will be working with. Notice that we have selected the value, *Scripted* in the dropdown.
+a. Select the TrackerBotStart VAV element, then select the *Settings* tab. The *Webex AI Agent* setting allows you to select which type of VAV agent you will be working with. Notice that we have selected the value, *Scripted* in the dropdown.
 
 ![Scripted agent Selection](./assets/L3T2S1.1-ScriptedBotSelection.jpg)
 
 b. Immediately under the *Webex AI Agent* setting, you will see the *Bot ID* setting. The value you see is the ID of the agent that was used to create this lab and will not be in the tenant you are using.
 
-![agent ID Field](./assets/L3T2S1.3-BotIDFilled.jpg)
+![Agent ID Field](./assets/L3T2S1.3-BotIDFilled.jpg)
 
 To find the value you need to use, open your Webex AI Studio, select the agent you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select *Copy agent ID*.
 
 ![Copy BotID](./assets/L3T2S1.2-CopyBotID.jpg)
 
-Paste the agent ID you copied into the value for *Bot ID.* While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same update.
+Paste the agent ID you copied into the value for *Bot ID*. While you have this in your clipboard, locate the TrackerBotOrderStatus element and make the same update.
 
 **Step 7.** The Event_Data setting in the VAV element allows us to pass data to the agent. In the first VAV element, we will pass in two static values. In the TrackerBotStart Settings, locate the Event Data and click on the ellipsis (three dots) in the Value.  
 

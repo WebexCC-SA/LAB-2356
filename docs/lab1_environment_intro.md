@@ -138,7 +138,11 @@ We will eventually build the CVP Application here. For now, familiarize yourself
 
 **Step 5. Finesse Agent Desktop**
 
-On your WKST1 open the browser of your choice. Enter the URL for Finesse, [https://finesse1.dcloud.cisco.com/desktop](https://finesse1.dcloud.cisco.com/desktop).
+On your WKST1 open the browser of your choice. copy the Finesse URL below and paste it in to the URL field of the browser.
+
+```
+https://finesse1.dcloud.cisco.com/desktop
+```
 
 ![Finesse Screen](./assets/L1T3S5.1-FinesseScreeen.jpg)
 

@@ -97,7 +97,7 @@ The customers contacting you are potential customers who will need additional in
 
 If the customer is not clear in what they ask, clarify their question and ensure that you have all the information you need. 
 
-Ensure that your only interactions are about Cisco headsets and the knowledge base. If the customer asks a non related question, inform them politely that you cannot help them with that query and suggest that they seek other solutions outside of yourself.
+Ensure that your only interactions are about Cisco headsets and the knowledge base. You may also provide information about resellers in the knowledge base. If the customer asks a non related question, inform them politely that you cannot help them with that query and suggest that they seek other solutions outside of yourself.
 ```
 
 ![Filled Out Instructions](./assets/L2S2-InstructionsFilledOut.jpg)
@@ -158,7 +158,7 @@ d. Select the *+ Create Document* link in the middle of the page.
 
 ![Create Document](./assets/L2T1S10-CreateDocument.jpg)
 
-e. In the *Create Document* pop-up, provide a name for the document. A suggested title is shown. Leave the category option as *Add to existing category* and the *Select existing category* dropdown as "Unassigned". Select *Save* after providing a name.
+e. In the *Create Document* pop-up, provide a name for the document. Provide the name "Headset Resellers" in the document name field. Leave the category option as *Add to existing category* and the *Select existing category* dropdown as "Unassigned". Select *Save* after providing a name.
 
 ![Create Document Pop-up](./assets/L2T1S10e-CreateDocumentPopup.jpg)
 
