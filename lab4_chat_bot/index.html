@@ -1,0 +1,961 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Implementing AI and cloud-based services for your Contact Center Enterprise.">
+      
+      
+        <meta name="author" content="Robert W. Rogier">
+      
+      
+      
+        <link rel="prev" href="../lab3_scripted_bot_basic/">
+      
+      
+        <link rel="next" href="../labaccess/">
+      
+      
+      <link rel="icon" href="../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Lab 4 - Digital Channels - LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-4-digital-deflection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." class="md-header__button md-logo" aria-label="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 4 - Digital Channels
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lab1_environment_intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Lab
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../labaccess/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Credentials
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." class="md-nav__button md-logo" aria-label="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lab
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1_environment_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Environment Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab2_autonomous_bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Autonomous AI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3_scripted_bot_basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Fulfillment w/Scripted AI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Digital Channels
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Digital Channels
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-add-autonomous-ai-agent-to-inbound-chat-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1 - Add Autonomous AI Agent to Inbound chat flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 1 - Add Autonomous AI Agent to Inbound chat flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-import-inbound-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1. Import Inbound Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-save-and-make-live" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2. Save and make Live
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-scripted-ai-agent-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2 - Scripted AI Agent Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section 2 - Scripted AI Agent Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1-create-intents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1. Create Intents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2-update-responses-for-the-default-channel-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2. Update Responses for the Default channel (web)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-3-import-and-configure-the-native-ai-inbound-chat-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3. Import and Configure the Native AI Inbound Chat Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-4-install-to-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4. Install to Chat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-4-digital-deflection">Lab 4 - Digital Deflection</h1>
+<h2 id="objectives"><strong>Objectives</strong></h2>
+<p>In this lab, you will learn how to integrate an Autonomous AI agent into a chat flow.</p>
+<ul>
+<li>Know how to create an Autonomous AI Agent from scratch and map it to a knowledge base.</li>
+<li>Create an agent goal, instructions, and welcome message.</li>
+<li>Understand how to configure and use fulfillment.</li>
+<li>See how to integrate the AI Agent into a call studio script.</li>
+</ul>
+<p>Explanation of formatting:</p>
+<ul>
+<li><em>Italics</em> - This indicates a button, menu option, or object that should be selected.</li>
+<li>"Quoted Text" - This indicates that the text should be typed exactly as indicated.</li>
+</ul>
+<p><strong>Instructor Demonstrated</strong></p>
+<p>Note, this lab is going to be instructor demonstrated. There are no tasks that you will do in this lab. The lab guide is provided for you to refer to later.</p>
+<h2 id="section-1-add-autonomous-ai-agent-to-inbound-chat-flow"><strong>Section 1 - Add Autonomous AI Agent to Inbound chat flow</strong></h2>
+<p>In this section we will integrate the Autonomous AI agent to a inbound chat flow. You will not perform any of the steps in this section, they are simply for your reference.</p>
+<h3 id="task-1-import-inbound-flow"><strong>Task 1. Import Inbound Flow</strong></h3>
+<p><strong>Step 1.</strong> Download a customized Inbound flow by selecting the <a href="../downloads/AutonomousAI_Inbound.zip">link</a>. Unzip this to a location on your computer.</p>
+<p><strong>Step 2.</strong> Login to Webex Connect by navigating to the <em>Contact Center</em> -&gt; <em>Digital</em> menu options in Webex Control Hub.</p>
+<p><strong>Step 3.</strong> Ensure that you have created a Live Chat Asset and Service to use. You can find instructions <a href="https://help.webexconnect.io/docs/live-chat-cce" target="_blank">here</a>.</p>
+<p><strong>Step 4.</strong> In the service you created, select <em>Flows</em>, then select the <em>Create Flow</em> button. </p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L4T1S4-ImportFlow.jpg" data-title="Import Flow" data-desc-position="top"><img alt="Import Flow" src="../assets/L4T1S4-ImportFlow.jpg"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L4T1S4b-ImportDialog.jpg" data-title="Import Dialog" data-desc-position="top"><img alt="Import Dialog" src="../assets/L4T1S4b-ImportDialog.jpg"></a></p>
+<ul>
+<li>Provide a descriptive name for the Flow Name.</li>
+<li>From the <em>Method</em> drop-down, select "Upload a flow"</li>
+<li>Either drag and drop the extracted flow into the <em>Attachment</em> box or, select <em>Choose File</em> and navigate to where you extracted the zip file and choose the .workflow file.</li>
+<li>Select <em>Create</em> to upload this flow and open it.</li>
+</ul>
+<p><strong>Step 5.</strong> Modify the flow.</p>
+<p>a. Accept the defaults in the initial Configure APP Event.</p>
+<p>b. Locate the <em>AI Agent Node</em> and open it.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L4T1S5b-AIAgentNode.jpg" data-title="AI Agent Node" data-desc-position="top"><img alt="AI Agent Node" src="../assets/L4T1S5b-AIAgentNode.jpg"></a></p>
+<p>c. In the AI Agent Node, select <em>Autonomous</em> from the <em>Agent Type</em> drop-down box. Next, select the AI Agent you created in the <em>Agent</em> drop-down.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L4T1S5c-AgentSelection.jpg" data-title="AI Agent Form" data-desc-position="top"><img alt="AI Agent Form" src="../assets/L4T1S5c-AgentSelection.jpg"></a></p>
+<p>Note the Message is a variable. Each time that the loop occurs, this message will be updated with the customer's response back to the agent. This variable should be set to a message which will start the agent such as "Hello".</p>
+<p>d. Review the remaining nodes in the workflow. These are as follows:</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L4T1S5d-AgentLoop.jpg" data-title="Agent Loop" data-desc-position="top"><img alt="Agent Loop" src="../assets/L4T1S5d-AgentLoop.jpg"></a></p>
+<ul>
+<li>Evaluate - This simply sets the timestamp to the current time.</li>
+<li>Sent agent response text - This will display the response from the agent to the customer.</li>
+<li>Append Conversation - This will write the agent response to history.</li>
+<li>Receive - This receives the response from the customer back to the agent.</li>
+<li>Evaluate - This normalizes the response from the customer and ensures there are no content issues. This will then set the input message variable to the sanitized response.</li>
+<li>Append Conversation - This writes the customer's response to history.</li>
+</ul>
+<p>e. At any point if the customer asks to speak to an agent, the AI Agent Node will take the onAgentHandover exit path and will be sent to CCE for agent handling.</p>
+<h3 id="task-2-save-and-make-live"><strong>Task 2. Save and make Live</strong></h3>
+<p><strong>Step 1.</strong> Save the Flow.</p>
+<p>Save your changes by selecting <em>Save</em> at the top of the screen. If any messages come up that nodes are not configured, select each message, then check to ensure that the node is correctly configured and saved. Some nodes simply need to be opened and saved after a workflow has been imported.</p>
+<p><strong>Step 2.</strong> Make Flow live and map to an application.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L4T2S2-MakeLive.jpg" data-title="Make Live Dialog" data-desc-position="top"><img alt="Make Live Dialog" src="../assets/L4T2S2-MakeLive.jpg"></a></p>
+<p>Select the <em>Make Live</em> button at the top of the work flow. In the <em>Make Live Configuration</em> dialog box, select the application you wish to map this flow to. It will take several seconds to a minute for the flow to go live.</p>
+<p><strong>Task 3. Install to Chat</strong></p>
+<p>The steps to customize the chat interface and install in a web site will not be covered in detail in this section.</p>
+<p>You can find details at this <a href="https://www.cisco.com/c/dam/en/us/td/docs/voice_ip_comm/cust_contact/contact_center/icm_enterprise/wxengage_for_digital_channels/admin/guide/Administration_and_Setup_Guide_for_Webex_Engage_with_CCE.pdf" target="_blank">link</a></p>
+<h2 id="section-2-scripted-ai-agent-steps"><strong>Section 2 - Scripted AI Agent Steps</strong></h2>
+<p>Note: This is not going to be shown in the class but is here so you can see what changes need to be made to the AI agent to add in chat support.</p>
+<h3 id="task-1-create-intents"><strong>Task 1. Create Intents</strong></h3>
+<p>In this task, we will create the following 2 Intents</p>
+<ul>
+<li>Chat Start Order Tracking</li>
+<li>Chat Order Results</li>
+</ul>
+<p><strong>Step 1.</strong> Create Intent - "Chat Start Order Tracking"</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Intents</em></strong> -&gt; click on the <strong><em>Create intent</em></strong> button.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-01.png" data-title="Create Intent 1" data-desc-position="top"><img alt="Create Intent 1" src="../assets/L5-01.png"></a></p>
+<p>b. Enter the Intent name as "Chat Start Order Tracking".</p>
+<p>c. Under Intent and Utterances section, type the phrase "Start_Chat" and click the <strong><em>Add</em></strong> button.</p>
+<p>Note:</p>
+<ul>
+<li>For the Voice channel, the welcome_event was sent from the Call Studio script as the trigger for the AI Agents' welcome message.</li>
+<li>Similarly, for the Web (Chat) channel, the phrase "Start_Chat" will be used as the trigger for the AI Agents' welcome message. This will be configured in the Inbound Flow in a later step.</li>
+</ul>
+<p>d. In the <strong><em>Response</em></strong> section, from the drop down, select <strong><em>Welcome message</em></strong>.</p>
+<p>e. Lastly, click <strong><em>Create</em></strong> to complete the "Chat Start Order Tracking" intent configuration.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-02.png" data-title="Create Intent - CSOT" data-desc-position="top"><img alt="Create Intent - CSOT" src="../assets/L5-02.png"></a></p>
+<p><strong>Step 2.</strong> Create Intent - "Chat Order Results"</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Intents</em></strong> -&gt; click on the <strong><em>Create intent</em></strong> button.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-01.png" data-title="Create Intent 2" data-desc-position="top"><img alt="Create Intent 2" src="../assets/L5-01.png"></a></p>
+<p>b. Enter the Intent name as "Chat Order Results".</p>
+<p>c. Under Intent and Utterances section, type the phrase "order_results" and click the <strong><em>Add</em></strong> button.</p>
+<p>Note:</p>
+<ul>
+<li>In the Inbound Flow, once the order_number and user_pin slots are collected as part of the "Start Order Tracking" Intent, the Inbound Flow sends the order_results message to trigger the track_order_results response.</li>
+</ul>
+<p>d. In the <strong><em>Response</em></strong> section, from the drop down, select <strong><em>track_order_results</em></strong>.</p>
+<p>e. Lastly, click <strong><em>Create</em></strong> to complete the "Chat Order Results" intent configuration.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-03.png" data-title="Create Intent - COR" data-desc-position="top"><img alt="Create Intent - COR" src="../assets/L5-03.png"></a></p>
+<h3 id="task-2-update-responses-for-the-default-channel-web"><strong>Task 2. Update Responses for the Default channel (web)</strong></h3>
+<p>In this task, we will be updating the following responses - Default channel (web) - Chat</p>
+<ul>
+<li>Welcome message</li>
+<li>order_number</li>
+<li>pin_missing</li>
+<li>track_order_wait</li>
+<li>track_order_results</li>
+<li>track_another_order</li>
+<li>Goodbye</li>
+</ul>
+<p><strong>Step 1.</strong> Update the <strong><em>Welcome message</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>Welcome message</em></strong> response.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2-27.png" data-title="welcome message edit chat" data-desc-position="top"><img alt="welcome message edit chat" src="../assets/L2-27.png"></a></p>
+<p>b. On the left side of the response window, click on the previously created conditional response "check_if_name_is_passed" -&gt; Select the <strong><em>Rules</em></strong> tab.</p>
+<p>c. Click the <strong><em>+OR Condition</em></strong> button and enter as below:</p>
+<ul>
+<li><strong><em>Left variable:</em></strong> consumerData.extra_params.name</li>
+<li><strong><em>Operator:</em></strong> Exists</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-04.png" data-title="Rules update" data-desc-position="top"><img alt="Rules update" src="../assets/L5-04.png"></a></p>
+<p>c. Next, select the <strong><em>Actions</em></strong> tab on the left and click the Default (web) tab (Note: since this is for the chat channel, ensure you are NOT selecting Voice option)</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-05.png" data-title="Chat Channel" data-desc-position="top"><img alt="Chat Channel" src="../assets/L5-05.png"></a></p>
+<p>d. Add the text below as <strong><em>Variant 1</em></strong> in the Text section. Feel free to add more of these variants if you like.</p>
+<p>Note: consumerData.<param> is how we can reference data that is passed from Chat Flow to the bot.</p>
+<div class="highlight"><pre><span></span><code>Hello  ${consumerData.extra_params.name} , I am a Tracker bot. I can help you track your packages. How can I help you today? To get started, please ask me to track an order number.
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-06.png" data-title="Actions update chat" data-desc-position="top"><img alt="Actions update chat" src="../assets/L5-06.png"></a></p>
+<p><strong>Step 2.</strong> Update the <strong><em>order_number</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>order_number</em></strong> response.</p>
+<p>b. Next, click on the <strong><em>Default (web)</em></strong> button and enter the below text as Variant 1.</p>
+<div class="highlight"><pre><span></span><code>Please provide your six digit order number.
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-07.png" data-title="order_number chat" data-desc-position="top"><img alt="order_number chat" src="../assets/L5-07.png"></a></p>
+<p><strong>Step 3.</strong> Update the <strong><em>pin_missing</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>pin_missing</em></strong> response.</p>
+<p>b. Next, click on the <strong><em>Default (web)</em></strong> button and enter the below text as Variant 1.</p>
+<div class="highlight"><pre><span></span><code>Please provide your four digit PIN.
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-08.png" data-title="pin_missing chat" data-desc-position="top"><img alt="pin_missing chat" src="../assets/L5-08.png"></a></p>
+<p><strong>Step 4.</strong> Update the <strong><em>track_order_wait</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>track_order_wait</em></strong> response.</p>
+<p>b. Next, click on the <strong><em>Default (web)</em></strong> button and enter the below text as Variant 1.</p>
+<div class="highlight"><pre><span></span><code>Getting your package details now...
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-09.png" data-title="track_order_wait chat" data-desc-position="top"><img alt="track_order_wait chat" src="../assets/L5-09.png"></a></p>
+<p><strong>Step 5.</strong> Update the <strong><em>track_order_results</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>track_order_results</em></strong> response.</p>
+<p>b. On the left side of the response window, click on the previously created conditional response "order_status_check" -&gt; Select the <em>Rules</em> tab</p>
+<p>c. Click the <strong><em>+OR Condition</em></strong> button and enter as below:</p>
+<ul>
+<li><strong><em>Left variable:</em></strong> consumerData.extra_params.order_status</li>
+<li><strong><em>Operator:</em></strong> Exists</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-10.png" data-title="track_order_wait rules chat" data-desc-position="top"><img alt="track_order_wait rules chat" src="../assets/L5-10.png"></a></p>
+<p>c. Next, select the <strong><em>Actions</em></strong> tab on the left and click the Default (web) tab (Note: since this is for the chat channel, ensure you are NOT selecting Voice option)</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-05.png" data-title="track_order_wait actions chat" data-desc-position="top"><img alt="track_order_wait actions chat" src="../assets/L5-05.png"></a></p>
+<p>d. Add the text below as <strong><em>Variant 1</em></strong> in the Text section. Feel free to add more of these variants if you like.</p>
+<p>Note: consumerData.<param> is how we can reference data that is passed from Chat Flow to the bot.</p>
+<div class="highlight"><pre><span></span><code>We have found your order. ${consumerData.extra_params.order_status}  Do you need anything else?
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-11.png" data-title="track_order_results chat" data-desc-position="top"><img alt="track_order_results chat" src="../assets/L5-11.png"></a></p>
+<p><strong>Step 6.</strong> Update the <strong><em>track_another_order</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>track_another_order</em></strong> response.</p>
+<p>b. Next, click on the <strong><em>Default (web)</em></strong> button and enter the below text as Variant 1.</p>
+<div class="highlight"><pre><span></span><code>Great! To get started, please ask me to track an order number.
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-12.png" data-title="track_another_order chat" data-desc-position="top"><img alt="track_another_order chat" src="../assets/L5-12.png"></a></p>
+<p><strong>Step 7.</strong> Update the <strong><em>Goodbye</em></strong> response</p>
+<p>a. In the AI Agent configuration, navigate to <strong><em>Script</em></strong> -&gt; <strong><em>Responses</em></strong> -&gt; click on the <strong><em>Goodbye</em></strong> response.</p>
+<p>b. Next, click on the <strong><em>Default (web)</em></strong> button and enter the below text as Variant 1.</p>
+<div class="highlight"><pre><span></span><code>Thank you for your response! I will now connect you to a live agent for further assistance! Have a wonderful day!
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-13.png" data-title="Goodbye chat" data-desc-position="top"><img alt="Goodbye chat" src="../assets/L5-13.png"></a></p>
+<h3 id="task-3-import-and-configure-the-native-ai-inbound-chat-flow"><strong>Task 3. Import and Configure the Native AI Inbound Chat Flow</strong></h3>
+<p><strong>Step 1.</strong> Navigate to this <a href="../downloads/Scripted_Inbound.zip">link</a>. Unzip this to a location on your computer.</p>
+<p><strong>Step 2.</strong> Log into Webex Control Hub <strong><em>admin.webex.com</em></strong> and navigate to <strong><em>Contact Center</em></strong> -&gt; <strong><em>Digital</em></strong> -&gt; <strong><em>Webex Connect</em></strong>. This opens up the Webex Connect portal.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-14.png" data-title="Connect Portal" data-desc-position="top"><img alt="Connect Portal" src="../assets/L5-14.png"></a></p>
+<p><strong>Step 3.</strong> Navigate to Services tab and select the Service created for you seat number.</p>
+<p><strong>Step 4.</strong> Click the <strong><em>Create Flow</em></strong> button -&gt; enter a Flow Name -&gt; select <strong><em>Upload a Flow</em></strong> -&gt; Choose the downloaded file -&gt; Click <strong><em>Create</em></strong></p>
+<p><strong>Step 5.</strong> Update the <strong><em>Bot Start</em></strong> and the <strong><em>Bot OrderResults</em></strong> nodes</p>
+<ul>
+<li>Under the <strong><em>Agent</em></strong> field, select the AI Agent Bot you created</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-20.png" data-title="BOT node updates" data-desc-position="top"><img alt="BOT node updates" src="../assets/L5-20.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-21.png" data-title="BOT Start" data-desc-position="top"><img alt="BOT Start" src="../assets/L5-21.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-22.png" data-title="BOT OrderResults" data-desc-position="top"><img alt="BOT OrderResults" src="../assets/L5-22.png"></a></p>
+<p><strong>Step 6.</strong> Review the nodes to see where the messages are sent to the AI Agent.</p>
+<p><strong>Step 7.</strong> Click on the Settings tab and update the following variables:</p>
+<ul>
+<li>CloudConnectFQDN</li>
+<li>botInputMessage</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-23.png" data-title="Update variables" data-desc-position="top"><img alt="Update variables" src="../assets/L5-23.png"></a></p>
+<p><strong>Step 8.</strong> Save and Make Live</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L5-24.png" data-title="Save and Make Live" data-desc-position="top"><img alt="Save and Make Live" src="../assets/L5-24.png"></a></p>
+<h3 id="task-4-install-to-chat"><strong>Task 4. Install to Chat</strong></h3>
+<p>The steps to customize the chat interface and install in a web site will not be covered in detail in this section.</p>
+<p>You can find details at this <a href="https://www.cisco.com/c/dam/en/us/td/docs/voice_ip_comm/cust_contact/contact_center/icm_enterprise/wxengage_for_digital_channels/admin/guide/Administration_and_Setup_Guide_for_Webex_Engage_with_CCE.pdf" target="_blank">link</a></p>
+<p><strong>This now completes lab 4</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../lab3_scripted_bot_basic/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 3 - Fulfillment w/Scripted AI Agent">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab 3 - Fulfillment w/Scripted AI Agent
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../labaccess/" class="md-footer__link md-footer__link--next" aria-label="Next: Credentials">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Credentials
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../template_assets/js/newLoad.js"></script>
+      
+        <script src="../template_assets/js/setInfo.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

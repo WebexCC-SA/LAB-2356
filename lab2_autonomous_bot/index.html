@@ -1,0 +1,1025 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Implementing AI and cloud-based services for your Contact Center Enterprise.">
+      
+      
+        <meta name="author" content="Robert W. Rogier">
+      
+      
+      
+        <link rel="prev" href="../lab1_environment_intro/">
+      
+      
+        <link rel="next" href="../lab3_scripted_bot_basic/">
+      
+      
+      <link rel="icon" href="../template_assets/webex75.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Lab 2 - Autonomous AI Agent - LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-2-autonomous-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." class="md-header__button md-logo" aria-label="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2 - Autonomous AI Agent
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lab1_environment_intro/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Lab
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../labaccess/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Credentials
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." class="md-nav__button md-logo" aria-label="LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise." data-md-component="logo">
+      
+  <img src="../template_assets/webexLogo91.png" alt="logo">
+
+    </a>
+    LAB-2356: Implementing AI and cloud-based services for your Contact Center Enterprise.
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lab
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab1_environment_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1 - Environment Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Autonomous AI Agent
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2 - Autonomous AI Agent
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-1-create-an-ai-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1. Create an AI Agent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-2-test-ai-agent-and-review-session-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2. Test AI Agent and Review Session History
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-3-integrate-to-call-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3. Integrate to Call Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-4-test-call-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4. Test Call Flow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab3_scripted_bot_basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3 - Fulfillment w/Scripted AI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4_chat_bot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4 - Digital Channels
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-2-autonomous-agents">Lab 2 - Autonomous Agents</h1>
+<h2 id="objectives"><strong>Objectives</strong></h2>
+<p>In this lab, you will learn about Autonomous AI Agents. You will see how to create an Autonomous AI Agent and map it to a knowledge base. You will learn how to do all of the following tasks:</p>
+<ul>
+<li>Know how to create an Autonomous AI Agent from scratch.</li>
+<li>Create an agent goal, instructions, and welcome message.</li>
+<li>Understand where to map a Knowledge Base and how to update the Knowledge Base.</li>
+<li>See how to integrate the AI Agent into a call studio script.</li>
+</ul>
+<p>Explanation of formatting:</p>
+<ul>
+<li><em>Italics</em> - This indicates a button, menu option, or object that should be selected.</li>
+<li>"Quoted Text" - This indicates that the text should be typed exactly as indicated.</li>
+</ul>
+<p><strong>Expected Total Time - 60 minutes</strong></p>
+<p>Note, you will have about 60 minutes to complete this lab.</p>
+<h2 id="task-1-create-an-ai-agent"><strong>Task 1. Create an AI Agent</strong></h2>
+<p>In this task, we will create the AI Agent and define define the agent's goal, instructions, and welcome message.</p>
+<ul>
+<li>Goal: What is the primary objective of the AI agent?</li>
+<li>Instructions: How should your agent interact with customers to perform its task?</li>
+<li>Welcome Message: How should your agent greet your customer initially?</li>
+</ul>
+<p><strong>Step 1.</strong></p>
+<p>Log into Webex Control Hub and select <strong><em>Contact Center</em></strong> -&gt; <strong><em>AI Agents</em></strong> -&gt; <strong><em>Build your AI Agent</em></strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2-00.png" data-title="Build your AI Agent" data-desc-position="top"><img alt="Build your AI Agent" src="../assets/L2-00.png"></a></p>
+<p><strong>Step 2.</strong></p>
+<p>Select the <strong><em>Create Agent</em></strong> button to the top right of the screen.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2-01.png" data-title="Create agent" data-desc-position="top"><img alt="Create agent" src="../assets/L2-01.png"></a></p>
+<p>Select <strong><em>Start from scratch</em></strong> and then click the <strong><em>Next</em></strong> button to the bottom-right of the screen.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2-02.png" data-title="Start from scratch" data-desc-position="top"><img alt="Start from scratch" src="../assets/L2-02.png"></a></p>
+<p><strong>Step 3.</strong></p>
+<p>Select <strong><em>Autonomous</em></strong> in the type of agent box. In the <strong><em>Add the essential details</em></strong> form:</p>
+<ul>
+<li>Provide an Agent Name of your choice. Ensure that it is unique by including your seat number at the beginning.  ex. "S01 - My AI Agent"</li>
+<li>The System ID is auto-generated.</li>
+<li>The AI engine should be left as Webex AI Pro 1.0.</li>
+</ul>
+<p>In the Agent's goal, type the following text:</p>
+<div class="highlight"><pre><span></span><code>You are a polite, professional agent who is an expert in Cisco Headsets. You will help answer customer pre-sales questions on headsets.
+</code></pre></div>
+<p>After the form is completed, select the <strong><em>Create</em></strong> button.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/AutonomousStart.jpg" data-title="Autonomous Agent Start" data-desc-position="top"><img alt="Autonomous Agent Start" src="../assets/AutonomousStart.jpg"></a></p>
+<p><strong>Step 4.</strong></p>
+<p>Review the form for the Agent that you have just created. You will notice four configuration sections at the top and four menu options at the left. Let's review each.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/InitialAutonomousForm.jpg" data-title="Initial Autonomous Agent Form" data-desc-position="top"><img alt="Initial Autonomous Agent Form" src="../assets/InitialAutonomousForm.jpg"></a></p>
+<ul>
+<li>
+<p>Configuration</p>
+<ul>
+<li>
+<p>Profile: This section is where you configure the options that give the guidance to your AI Agent. This form contains the key prompts that you AI Agent will use to perform the task you have for it.</p>
+<ul>
+<li>Agent name: A human readable name for the AI Agent. This can be updated as required.</li>
+<li>System ID: Generated, unique ID for the AI agent. This can be changed, but must be unique in your tenant.</li>
+<li>Agent's goal: This describes what your agent should do at a high level.</li>
+<li>Instructions: This is the heart of the AI Agent. This should be a full description of what your agent does and how it should do it. Include guardrails, error handling, context, and describe how actions (where applicable) should be used.</li>
+<li>URL for agent profile image: This is the image used with your agent. You can add your own image if you wish.</li>
+<li>AI engine: This lets you select which AI engine you wish to use. There are currently two engines available, "Webex AI Pro 1.0", and "Webex AI Pro-US 1.0". As our lab is based in the European data center, you will only see "Webex AI Pro 1.0".</li>
+<li>
+<p>Welcome message: This is the first message that your AI Agent will send to the customer.</p>
+<p>You can find the documentation on each option at the following <a href="https://help.webex.com/en-us/article/nelkmxk/Guidelines-and-best-practices-for-automating-with-AI-agent">website</a>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Knowledge: This section allows you to select the Knowledge base that the agent will use to fulfil the responses to the customer.</p>
+</li>
+<li>Actions: This section defines the actions that you agent can take. You will see one default action included with each agent named "Agent handover". You can create additional actions to fulfill tasks as required.</li>
+<li>Language: This allows you to select the language used by your AI Agent as well as the voice that will be used. For the Webex AI Pro-US engine, the only language  available is English.</li>
+</ul>
+</li>
+<li>
+<p>Sessions: This allows you to see the interactions with your AI Agent. We will look at this in a later section.</p>
+</li>
+<li>History: This shows the save history of your agent. As you make changes that are subsequently saved and published, this section will be populated.</li>
+<li>Analytics: This will show statistics and reporting about the use of your AI Agent.</li>
+</ul>
+<p><strong>Step 5.</strong></p>
+<p>Let's now update the Instructions field. We have provided an example instruction below. Copy and paste this into the Instructions field to start.</p>
+<div class="highlight"><pre><span></span><code>You are an expert customer service representative who can answer any question on the capabilities and features of Cisco headsets. You should answer all questions in the most professional, helpful way possible.
+
+The customers contacting you are potential customers who will need additional information on the features and capabilities of Cisco headsets in order to make and informed purchasing decision.
+
+If the customer is not clear in what they ask, clarify their question and ensure that you have all the information you need. 
+
+Ensure that your only interactions are about Cisco headsets and the knowledge base. You may also provide information about resellers in the knowledge base. If the customer asks a non related question, inform them politely that you cannot help them with that query and suggest that they seek other solutions outside of yourself.
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2S2-InstructionsFilledOut.jpg" data-title="Filled Out Instructions" data-desc-position="top"><img alt="Filled Out Instructions" src="../assets/L2S2-InstructionsFilledOut.jpg"></a></p>
+<p>After you have done this, review the text and notice what has been included.</p>
+<p>Paragraph 1 – This describes what the Agent should do. It gives the way that the agent should interact with the customer. Note that we tell the agent what voice it should use (most professional, helpful way possible).</p>
+<p>Paragraph 2 – This describes what customers will be talking to the AI Agent. This lets the agent format the messages in the proper way.</p>
+<p>Paragraph 3 – Here we account for errors where the agent may not understand what the customer asked.</p>
+<p>Paragraph 4 – The final paragraph sets guardrails on the interactions. We explicitly tell the agent that it may not answer questions that are outside of the knowledge base.</p>
+<p><strong>Step 6.</strong></p>
+<p>Next, let's update the Welcome message. As a reminder, this is the first message that the agent will send to the customer. This should greet the customer and describe what to expect from the interaction. Use the sample shown as a starting point and copy/paste it into your agent.</p>
+<div class="highlight"><pre><span></span><code>Hello, I am a sales assistant agent and I can help answer questions about Cisco headsets. How can I help you today?
+</code></pre></div>
+<p><strong>Step 7.</strong></p>
+<p>We now have the AI Agent configured but we need to map to to a Knowledge Base. Select the <em>Knowledge</em> tab to configure this. From the Knowledge Base drop-down, select the knowledge base that corresponds to your seat number. You may find it easier to search for the knowledge base instead of scrolling through the entire list.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2S7-KBSelection.jpg" data-title="Knowledge Base Selection" data-desc-position="top"><img alt="Knowledge Base Selection" src="../assets/L2S7-KBSelection.jpg"></a></p>
+<p><strong>Step 8.</strong></p>
+<p>Finally, select the <em>Language</em> tab. If you wish, update the voice to a different option but leave the language set to English.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2S8-LanguageSelection.jpg" data-title="Language Selection" data-desc-position="top"><img alt="Language Selection" src="../assets/L2S8-LanguageSelection.jpg"></a></p>
+<p><strong>Step 9.</strong></p>
+<p>Now that you have configured the AI Agent, select the <em>Save Changes</em> button at the top of the AI Agent configuration screen.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2S9-SaveChangesButton.jpg" data-title="Save Changes" data-desc-position="top"><img alt="Save Changes" src="../assets/L2S9-SaveChangesButton.jpg"></a></p>
+<p><strong>Step 10.</strong></p>
+<p>In this step, we will personalize the Knowledge Base. The current Knowledge Base is just Cisco data sheets. Let's add in some contact information for a reseller, YOU!!</p>
+<p>a. Select the Knowledge Base management link at the left.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10-KBLocation.jpg" data-title="KB Link" data-desc-position="top"><img alt="KB Link" src="../assets/L2T1S10-KBLocation.jpg"></a></p>
+<p>b. Locate the Knowledge Base you used in step 7. As a reminder, this will include your seat number. You can use the search function to locate your Knowledge Base as shown in the image. After locating your Knowledge Base, open it by selecting the box in the search results.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10-KBSearch.jpg" data-title="KB Search Area" data-desc-position="top"><img alt="KB Search Area" src="../assets/L2T1S10-KBSearch.jpg"></a></p>
+<p>c. Feel free to review the Knowledge Base area to see what files are already uploaded. Select the <em>Documents</em> menu at the top of the screen to add in the custom content.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10-DocumentsMenu.jpg" data-title="Documents Menu in KB" data-desc-position="top"><img alt="Documents Menu in KB" src="../assets/L2T1S10-DocumentsMenu.jpg"></a></p>
+<p>d. Select the <em>+ Create Document</em> link in the middle of the page.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10-CreateDocument.jpg" data-title="Create Document" data-desc-position="top"><img alt="Create Document" src="../assets/L2T1S10-CreateDocument.jpg"></a></p>
+<p>e. In the <em>Create Document</em> pop-up, provide a name for the document. Provide the name "Headset Resellers" in the document name field. Leave the category option as <em>Add to existing category</em> and the <em>Select existing category</em> dropdown as "Unassigned". Select <em>Save</em> after providing a name.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10e-CreateDocumentPopup.jpg" data-title="Create Document Pop-up" data-desc-position="top"><img alt="Create Document Pop-up" src="../assets/L2T1S10e-CreateDocumentPopup.jpg"></a></p>
+<p>f. In the text area, use the example shown in the image to add your own company name and information (or make one up). Feel free to be creative here. Once you have filled this out, select the <em>Save</em> button at the top of the document.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10f-FilledOutDocument.jpg" data-title="Filled Out Document" data-desc-position="top"><img alt="Filled Out Document" src="../assets/L2T1S10f-FilledOutDocument.jpg"></a></p>
+<p>g. After a few seconds to a minute, you should see a message that the document was successfully added. After you see this message, select the <em>Information</em> menu at the top of the page. You should see that the custom document in the history. If you do not see this immediately, select the <em>Refresh</em> icon at the top of the Activity History.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T1S10g-InformationMenu.jpg" data-title="Information Menu" data-desc-position="top"><img alt="Information Menu" src="../assets/L2T1S10g-InformationMenu.jpg"></a></p>
+<p>You are now ready to test the agent.</p>
+<h2 id="task-2-test-ai-agent-and-review-session-history"><strong>Task 2. Test AI Agent and Review Session History</strong></h2>
+<p>In this task, you will test the AI Agent that you created above. This will let you validate that everything is working correctly. Cisco supports testing with both text and voice.</p>
+<p><strong>Step 1. Text Preview</strong></p>
+<p>Select the <em>Preview</em> button at the top of the screen. Note that you do not need to publish the agent to preview.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S1-PreviewButton.jpg" data-title="Preview Button" data-desc-position="top"><img alt="Preview Button" src="../assets/L2T2S1-PreviewButton.jpg"></a></p>
+<p>The preview interface pops up at the bottom. Select, <em>Start a chat</em> to begin testing.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S1-StartAChat.jpg" data-title="Start a chat" data-desc-position="top"><img alt="Start a chat" src="../assets/L2T2S1-StartAChat.jpg"></a></p>
+<p><strong>Step 2. Chat with Agent</strong></p>
+<p>You will see your Welcome message come up on the screen. To begin testing, type the question, "What type of headsets does Cisco sell?". You can see the example response that was generated when the lab guide was built. Because this is an LLM generated AI Agent, the result that you receive, may be different. Select the <em>Read More</em> link in the response to read the entire response. This will let you read the full response that was generated.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S2-FirstResponse.jpg" data-title="First Response from Agent" data-desc-position="top"><img alt="First Response from Agent" src="../assets/L2T2S2-FirstResponse.jpg"></a></p>
+<p>Continue to interact with the agent and ask questions. You may want to ask which headsets are bluetooth enabled or which ones have boom mics. To test the guardrails, ask it a non-related question such as, "What is the weather in San Diego today?" To see the custom information you added to the agent, ask, "Which partner can sell this to me?" You should see the information you added.</p>
+<p><strong>Step 3. Review Session History</strong></p>
+<p>After you have done testing the Agent are are satisfied with the results, select the <em>Sessions</em> menu at the left. This opens the sessions list and allows you to see the messages sent and responses that were generated.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S3-SessionsMenu.jpg" data-title="Sessions Menu Location" data-desc-position="top"><img alt="Sessions Menu Location" src="../assets/L2T2S3-SessionsMenu.jpg"></a></p>
+<p>Locate the session record for the test session and click on it.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S3-ListofSessions.jpg" data-title="List of Sessions" data-desc-position="top"><img alt="List of Sessions" src="../assets/L2T2S3-ListofSessions.jpg"></a></p>
+<p>You will see the agents message, the customer's response to the message, then the agents reply to that message. Select the first response to the "What type of headsets does Cisco sell?". Note that you may select either the agent's message or the customer's message. In the right side, notice that you can see the specific knowledge base used as well as the detected language and the AI Engine.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S3-SessionDetails.jpg" data-title="Session Details" data-desc-position="top"><img alt="Session Details" src="../assets/L2T2S3-SessionDetails.jpg"></a></p>
+<p>Click the down arrow next to the Knowledge Base to review the documents and pages where the agent generated the information. Notice as you scroll down, you can see each document which information was pulled from and the specific page and content.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T2S3-KnowledgeUse.jpg" data-title="Knowledge Used" data-desc-position="top"><img alt="Knowledge Used" src="../assets/L2T2S3-KnowledgeUse.jpg"></a></p>
+<p><strong>Step 4. Publish the AI Agent</strong></p>
+<p>If you are not already on the Configuration page, select the <em>Configuration</em> menu at the left. Select <em>Publish</em> at the top of the page. In the <em>Publish and track changes</em> box, enter a comment about this publication. In the example, we have entered "Initial publication". These comments will help you identify what has changed later so ensure that these are meaningful to you.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S1-PublicationScreen.jpg" data-title="Publication Screen" data-desc-position="top"><img alt="Publication Screen" src="../assets/L2T3S1-PublicationScreen.jpg"></a></p>
+<p>Before we go any further, Select the <em>History</em> menu. Here, you can see the history of the publications and once there are more than one version, you can select the drop-down in the controls column to revert to a previous release. You will also see that you can export a specific version of the agent if you need to fork the development for some reason.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S1-HistoryPage.jpg" data-title="History Page" data-desc-position="top"><img alt="History Page" src="../assets/L2T3S1-HistoryPage.jpg"></a></p>
+<h2 id="task-3-integrate-to-call-flow"><strong>Task 3. Integrate to Call Flow</strong></h2>
+<p>We have now created an AI Agent and have tested it to ensure it's working. We are now ready to integrate into a call flow.  You will download a shell application that we have created for you. You will import this, then modify it to call the Agent that you created above.</p>
+<p><strong>Step 1.</strong> Open mRemoteNG on WKST1 if you do not already have mRemote open, then login to CVP. Once you have logged in to CVP, locate the Call Studio icon on the desktop and double-click it to open Call Studio.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T1S2.1-OpenCallStudio.jpg" data-title="Open Studio" data-desc-position="top"><img alt="Open Studio" src="../assets/L3T1S2.1-OpenCallStudio.jpg"></a></p>
+<p><strong>Step 2.</strong> Open a browser on the CVP server and download the application copying the link below and pasting it into the browser.</p>
+<div class="highlight"><pre><span></span><code>https://webexcc-sa.github.io/LAB-2356/downloads/NativeAI_Autonomous.zip
+</code></pre></div>
+<p>Remember where you download this (it will default to the Downloads folder for the Administrator) to as you will need it in step 3. You do not need to extract the zip.</p>
+<p><strong>Step 3.</strong> Import the application you have downloaded.</p>
+<ul>
+<li>
+<p>Select the <em>File</em> menu, then select <em>Import</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T1S3-ImportMenu.jpg" data-title="Import Menu Option" data-desc-position="top"><img alt="Import Menu Option" src="../assets/L3T1S3-ImportMenu.jpg"></a></p>
+</li>
+<li>
+<p>In the box that pops up, select <em>Projects from Folder or Archive</em>, then select <em>Next</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T1S3-ImportArchive.jpg" data-title="Import Dialog Box" data-desc-position="top"><img alt="Import Dialog Box" src="../assets/L3T1S3-ImportArchive.jpg"></a></p>
+</li>
+<li>
+<p>In the <em>Import Projects from Folder or Archive</em> dialog box, select the <em>Archive</em> button at the top of the box, then navigate to where you downloaded the example application and select it. Once you are back at the import dialog, ensure that you uncheck the folder "NativeAI_Autonomous.zip_expanded" and leave the "NativeAI_Autonomous.zip_expanded\NativeAI_Auto" selected. Refer to the image and once all options are set, select <em>Finish</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S3-AutoImportArchiveDialog.jpg" data-title="Import Application Dialog" data-desc-position="top"><img alt="Import Application Dialog" src="../assets/L2T3S3-AutoImportArchiveDialog.jpg"></a></p>
+</li>
+</ul>
+<p><strong>Step 4.</strong> In the <em>Project Explorer</em>, locate the <em>NativeAI_Auto</em> project. Expand this and double-click on the <em>app.callflow</em> to open the example application.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S4-AutoAppCallFlow.jpg" data-title="Project Explorer" data-desc-position="top"><img alt="Project Explorer" src="../assets/L2T3S4-AutoAppCallFlow.jpg"></a></p>
+<p><strong>Step 5.</strong> Review the application that you have imported. You will see that we have already added the required elements to the canvas.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S5-ImportedAutoApp.jpg" data-title="Imported Application" data-desc-position="top"><img alt="Imported Application" src="../assets/L2T3S5-ImportedAutoApp.jpg"></a></p>
+<p>Refer to the table for what each element is used for.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Element Name</strong></th>
+<th><strong>Element Type</strong></th>
+<th><strong>Element Function</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CVP Subdialog Start_01</td>
+<td>CVP Subdialog Start</td>
+<td>Mandatory element for all Comprehensive Call Flows to receive data from CCE.</td>
+</tr>
+<tr>
+<td>CVP Subdialog End_01</td>
+<td>CVP Subdialog End</td>
+<td>Mandatory element for all Comprehensive Call Flows to return data to CCE.</td>
+</tr>
+<tr>
+<td>HeadsetAgent</td>
+<td>VirtualAgentVoice</td>
+<td>VAV element which allows CCE to interact with the Native AI agent.</td>
+</tr>
+<tr>
+<td>HeadsetAgentDecision</td>
+<td>Decision</td>
+<td>Decision elements allow the user to take different outcomes based on the output of a previous element. This decision element handles the output from the HeadsetAgent VAV element.</td>
+</tr>
+<tr>
+<td>ErrorMessage</td>
+<td>Audio</td>
+<td>Audio elements allow script to play either static audio files or play text to speech files through an ASR/TTS server.</td>
+</tr>
+<tr>
+<td>AgentFlag</td>
+<td>Flag</td>
+<td>Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This Flag will indicate that the customer requested to speak to an agent.</td>
+</tr>
+<tr>
+<td>ErrorFlag</td>
+<td>Flag</td>
+<td>Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This flag will indicate that the AI Agent encountered an error.</td>
+</tr>
+<tr>
+<td>SessionEndFlag</td>
+<td>Flag</td>
+<td>Flag elements can be added to scripts to help with tracking calls through the logs and indicating what path a script has taken. This flag will indicate that the AI Agent completed and no agent was requested.</td>
+</tr>
+</tbody>
+</table>
+<p>Once you have imported the app, you are ready to start configuring the elements required to interact with the agent.</p>
+<p><strong>Step 6.</strong>  Update the VAV Element with the Agent ID from AI Agent Studio.</p>
+<p>a. Select the HeadsetAgent VAV element, then select the <em>Settings</em> tab. The <em>Webex AI Agent</em> setting allows you to select which type of VAV bot you will be working with. Notice that we have selected the value, <em>Autonomous</em> from the dropdown.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S6a-AutoDropDown.jpg" data-title="Webex AI Agent Dropdown" data-desc-position="top"><img alt="Webex AI Agent Dropdown" src="../assets/L2T3S6a-AutoDropDown.jpg"></a></p>
+<p>b. Immediately under the <em>Webex AI Agent</em> setting, you will see the <em>Bot ID</em> setting. The value you see is the ID of the agent that was used to create this lab and will not be in the tenant you are using.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S6b-BotID.jpg" data-title="Bot ID Field" data-desc-position="top"><img alt="Bot ID Field" src="../assets/L2T3S6b-BotID.jpg"></a></p>
+<p>To find the value you need to use, go to the Webex AI Studio tab and select the AI Agent you created above. Select the 3 dots at the top, right-hand side of the screen, and in the drop-down, select <em>Copy agent ID</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T2S1.2-CopyBotID.jpg" data-title="Copy BotID" data-desc-position="top"><img alt="Copy BotID" src="../assets/L3T2S1.2-CopyBotID.jpg"></a></p>
+<p>Paste the agent ID you copied into the value for <em>Bot ID.</em></p>
+<p><strong>Step 7.</strong> Deploy the Application</p>
+<p>a. If you have not saved your application, do so now by selecting the save icon in the toolbar.</p>
+<p>b. Validate the application. Right-click the <em>NativeAI_Auto</em> application and select <em>Validate</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T4S2.1-ValidateApplication.jpg" data-title="ValidateApplication" data-desc-position="top"><img alt="ValidateApplication" src="../assets/L3T4S2.1-ValidateApplication.jpg"></a></p>
+<p>Check the errors grid at the bottom of the screen to ensure nothing is shown. If you do see any errors, review the error and resolve the issue by referring back to the portion of the lab where that item was configured.</p>
+<p>c. Deploy the application to the VXML Server (located on the CVP server you are logged into). Right-click on the <em>NativeAI_Auto</em> application and select <em>Deploy</em>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T4S3.1-DeployApplication.jpg" data-title="Deploy Application" data-desc-position="top"><img alt="Deploy Application" src="../assets/L3T4S3.1-DeployApplication.jpg"></a></p>
+<p>d In the window that pops-up, leave the values at their defaults. The <em>NativeAI_Auto</em> application checked and the folder left as "C:\Cisco\CVP\VXMLServer" and click <em>Finish</em>.</p>
+<p>e. On the CVP server, deploy the application. Navigate to "C:\Cisco\CVP\VXMLServer\applications\NativeAI_Auto\admin". Double-click <em>deployApp.bat</em>.</p>
+<p>f. In the command window that pops up, type "yes" to confirm that you want to deploy the application. Hit enter one more time after the application has been deployed to close the command prompt window.</p>
+<p><strong>Step 8.</strong> Update CCE Script to use the new application</p>
+<p>a. In your mRemote window, locate the AW-HDS-DDS server and login.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S1.1-AWHDS.jpg" data-title="AWHDS Server" data-desc-position="top"><img alt="AWHDS Server" src="../assets/L3T5S1.1-AWHDS.jpg"></a></p>
+<p>b. Open the Script Editor by opening the Unified CCE Administration Tools folder on the desktop, then opening the <em>Script Editor</em> link.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S2.0-AdminTools.jpg" data-title="Unified CCE Admin Tools" data-desc-position="top"><img alt="Unified CCE Admin Tools" src="../assets/L3T5S2.0-AdminTools.jpg"></a></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S2.1-ScriptEditor.jpg" data-title="Script Editor" data-desc-position="top"><img alt="Script Editor" src="../assets/L3T5S2.1-ScriptEditor.jpg"></a></p>
+<p>c. Open the script named, CumulusInbound.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S3.1-CumulusScript.jpg" data-title="CumulusInbound Script" data-desc-position="top"><img alt="CumulusInbound Script" src="../assets/L3T5S3.1-CumulusScript.jpg"></a></p>
+<p>Select the Edit button in the toolbar.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S3.2-EditScript.jpg" data-title="Script Editor Edit Button" data-desc-position="top"><img alt="Script Editor Edit Button" src="../assets/L3T5S3.2-EditScript.jpg"></a></p>
+<p>d. Locate the <em>Set Variable</em> node which sets the VXML Application name (the fourth node from the top left).</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S4.1-SetVariableNode.jpg" data-title="VXML Application Set Variable" data-desc-position="top"><img alt="VXML Application Set Variable" src="../assets/L3T5S4.1-SetVariableNode.jpg"></a></p>
+<p>Open it and update the name of the script (currently HelloWorld) to "NativeAI_Auto".</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T3S8d-VXMLAppName.jpg" data-title="VXML Application Name Set" data-desc-position="top"><img alt="VXML Application Name Set" src="../assets/L2T3S8d-VXMLAppName.jpg"></a></p>
+<p>e. Select the <em>Save</em> button in the toolbar to make this change live, then select the <em>Monitor Script</em> button.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S5.1-MonitorScript.jpg" data-title="Monitor Script Button" data-desc-position="top"><img alt="Monitor Script Button" src="../assets/L3T5S5.1-MonitorScript.jpg"></a></p>
+<p>After a moment, you will see green boxes between each of the nodes. This will let you see the call's progress through the script visually. It is expected that all the green boxes show 0 as we have not placed any calls to this script yet.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T5S5.2-MonitorBoxes.jpg" data-title="Script Monitoring Indicators" data-desc-position="top"><img alt="Script Monitoring Indicators" src="../assets/L3T5S5.2-MonitorBoxes.jpg"></a></p>
+<h2 id="task-4-test-call-flow"><strong>Task 4. Test Call Flow</strong></h2>
+<p>In this task, we will test the Native AI agent that you created and see how the human agent sees the call.</p>
+<p><strong>Step 1.</strong>
+If you are not already logged in to Finesse on WKST1, open the Chrome browser, open a new tab and enter the URL below: </p>
+<div class="highlight"><pre><span></span><code>https://finesse1.dcloud.cisco.com
+</code></pre></div>
+<p>Login with the following details:</p>
+<ul>
+<li><strong><em>Username:</em></strong> sjeffers</li>
+<li><strong><em>Password:</em></strong> C1sco12345</li>
+<li><strong><em>Extension:</em></strong> 1080</li>
+</ul>
+<p>Note, that this is an SSO agent so you should only need to enter the username in the Finesse login screen. The ADFS page should have the agent credentials saved.</p>
+<p>Once you have logged in to Finesse, select <strong><em>Ready</em></strong> from the drop-down -&gt; Next, click the <strong><em>Agent Answers</em></strong> tab from the left side menu. (Note: The name of the tab in the image does not match the document as it was taken from a slightly different version of this lab. The feature, however is the same.)</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T4S1-FinesseLogin.jpg" data-title="Finesse Login" data-desc-position="top"><img alt="Finesse Login" src="../assets/L2T4S1-FinesseLogin.jpg"></a></p>
+<p><strong>Step 2.</strong>
+Use your mobile phone to call into the number. </p>
+<p>a. Locate the Main phone number for your session. On WKST1 open a browser and open a new tab, then in the default page that appears, select <strong><em>Demo Links</em></strong> -&gt; <strong><em>Demo Website</em></strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T6S2.1-DemoWebsiteLocation.jpg" data-title="Demo Site Location" data-desc-position="top"><img alt="Demo Site Location" src="../assets/L3T6S2.1-DemoWebsiteLocation.jpg"></a></p>
+<p>b. In the Cumulus Finance website that is shown, select the blue box on the right-hand side that reads <strong><em>Talk to an Expert</em></strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T6S2.1-TalkToExpert.jpg" data-title="Talk to Expert Button" data-desc-position="top"><img alt="Talk to Expert Button" src="../assets/L3T6S2.1-TalkToExpert.jpg"></a></p>
+<p>c. In the box that pops out, select the Call Us link. In the box that pops up, note the Main number, this is what you will use to test your lab.</p>
+<p><strong>IMPORTANT: THE NUMBER SHOWN IN THE IMAGE IS NOT THE NUMBER YOU WILL USE FOR YOUR LAB. ENSURE THAT YOU FIND THE NUMBER FOR YOUR SESSION!</strong></p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L3T6S2.3-MainNumber.jpg" data-title="Main Phone Number" data-desc-position="top"><img alt="Main Phone Number" src="../assets/L3T6S2.3-MainNumber.jpg"></a></p>
+<p><strong>Step 3.</strong>
+Use your mobile phone to call into the number. You should hear the bot greet you by name and your town, then ask how to help.</p>
+<p><strong>Step 4.</strong>
+Recommended ways to test the agent.</p>
+<ol>
+<li>After the agent answers and greets you, ask which headsets support bluetooth.</li>
+<li>Ask which headsets have boom mics.</li>
+<li>Feel free to ask other questions about headsets.</li>
+<li>Try out the guardrails by asking a non-related question like "What is the weather in San Diego today?"</li>
+</ol>
+<p><strong>Step 5.</strong></p>
+<p>When you are done testing the AI Agent, ask to speak to a human agent. You should then see the call arrive at the Finesse desktop. Answer the call and notice that the transcript (1) shows up. Select the AI Assistant button (2) at the top to show the AI Assistant. Here (3), you will see a summary of the call. Finally, notice the call variable "Call Reason" (4) which gives a one sentence summary of what the customer called about.</p>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../assets/L2T4S5-FinesseTranscript.jpg" data-title="Finesse After Call Received" data-desc-position="top"><img alt="Finesse After Call Received" src="../assets/L2T4S5-FinesseTranscript.jpg"></a></p>
+<p><strong>This now completes lab 2</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../lab1_environment_intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 1 - Environment Introduction">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab 1 - Environment Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lab3_scripted_bot_basic/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab 3 - Fulfillment w/Scripted AI Agent">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Lab 3 - Fulfillment w/Scripted AI Agent
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 Cisco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.footer", "search.suggest", "content.code.copy", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../template_assets/js/newLoad.js"></script>
+      
+        <script src="../template_assets/js/setInfo.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
