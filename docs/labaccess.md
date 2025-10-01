@@ -10,7 +10,7 @@ Note: The Webex Control Hub URL is always: [https://admin.webex.com](https://adm
 
 # dCloud Access
 
-We are using Cisco eXpo for this lab. Please open [the Expo URL](https://expo.ciscodcloud.com/b19ehwdofr8xlyx2dn5jg6vdr){:target="_blank"} to start the lab.
+We are using Cisco eXpo for this lab. Please open [the Expo URL](https://expo.ciscodcloud.com/8aat2p2wjkxx79yv53ytefy1y){:target="_blank"} to start the lab.
 
 ![eXpo Start Page](./assets/LabAccess-ExpoStart.jpg)
 
