@@ -331,14 +331,18 @@ After a moment, you will see green boxes between each of the nodes. This will le
 In this task, we will test the Native AI agent that you created and see how the human agent sees the call.
 
 **Step 1.**
-If you are not already logged in to Finesse, open the Chrome browser, open a new tab and enter the URL: ***https://finesse1.dcloud.cisco.com***
+If you are not already logged in to Finesse on WKST1, open the Chrome browser, open a new tab and enter the URL below: 
+
+```
+https://finesse1.dcloud.cisco.com
+```
 
 Login with the following details:
 
  - ***Username:*** sjeffers
  - ***Password:*** C1sco12345
  - ***Extension:*** 1080
- 
+
  Note that this is an SSO agent so you should only need to enter the username in the Finesse login screen. The ADFS page should have the agent credentials saved.
 
 Once you have logged in to Finesse, select ***Ready*** from the drop-down -> Next, click the ***VAV*** tab from the left side menu.
